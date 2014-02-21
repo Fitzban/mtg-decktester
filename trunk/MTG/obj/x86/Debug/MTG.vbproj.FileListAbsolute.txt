@@ -1,0 +1,11 @@
+D:\Programming\MTG\MTG\bin\Debug\MTG.exe
+D:\Programming\MTG\MTG\bin\Debug\MTG.pdb
+D:\Programming\MTG\MTG\bin\Debug\MTG.xml
+D:\Programming\MTG\MTG\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Programming\MTG\MTG\obj\x86\Debug\MTG.Form1.resources
+D:\Programming\MTG\MTG\obj\x86\Debug\MTG.Resources.resources
+D:\Programming\MTG\MTG\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Programming\MTG\MTG\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Programming\MTG\MTG\obj\x86\Debug\MTG.exe
+D:\Programming\MTG\MTG\obj\x86\Debug\MTG.xml
+D:\Programming\MTG\MTG\obj\x86\Debug\MTG.pdb
