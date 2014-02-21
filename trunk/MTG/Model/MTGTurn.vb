@@ -3,7 +3,7 @@
 Public Class MTGTurn
     Implements IMTGTurn
 
-    Public turnnumber As Integer = 0
+    Public pturnnumber As Integer = 0
     Public totaldamage As Integer = 0
     Public damagedone As Integer = 0
     Public damages_received As Integer = 0
@@ -36,8 +36,8 @@ Public Class MTGTurn
         Next
 
         deck = mdeck
-        turnnumber = mturnnumber
-        actions.AppendLine("turn #: " + turnnumber.ToString)
+        pturnnumber = mturnnumber
+        actions.AppendLine("turn #: " + pturnnumber.ToString)
     End Sub
 
     Private _drawn As MTGCard
@@ -80,7 +80,7 @@ Public Class MTGTurn
 
     Public Overrides Function ToString() As String
 
-        If turnnumber = 0 Then Return handtostring(hand)
+        If pturnnumber = 0 Then Return handtostring(hand)
 
         actions.AppendLine("played: " + playedtostring())
         actions.AppendLine("damage: " + damagedone.ToString)
@@ -117,4 +117,11 @@ Public Class MTGTurn
 
         Return ret.ToString
     End Function
+
+    Public ReadOnly Property turnnumber1 As Integer Implements IMTGTurn.turnnumber
+        Get
+            Return pturnnumber
+        End Get
+    End Property
+
 End Class

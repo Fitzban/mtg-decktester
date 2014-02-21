@@ -5,4 +5,5 @@
     Sub play(card As MTGCard)
 
     ReadOnly Property nextcardtoplay As MTGCard
+    ReadOnly Property turnnumber As Integer
 End Interface

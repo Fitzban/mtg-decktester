@@ -6,43 +6,10 @@ MTG
 </name>
 </assembly>
 <members>
-<member name="M:MTG.BurnPlayalgorithms.play(MTG.IMTGDeck)">
-	<summary>
- draw, play land fire
- draw, play land fire
- draw, play land fire
- draw, play land fire
- draw, play land fire
- draw, play land fire
- draw, play land fire
- </summary>
-	<param name="deck"></param>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:MTG.MTGDeck.shuffle">
+<member name="M:MTG.MTGDeck.shuffle">
 	<summary>
  shuffle the library
  </summary>
-	<remarks></remarks>
-</member><member name="P:MTG.My.Resources.Resources.ResourceManager">
-	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:MTG.My.Resources.Resources.Culture">
-	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="T:MTG.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member><member name="M:MTG.MTGTurn.handtostring(System.Collections.Generic.LinkedList{MTG.MTGCard})">
-	<summary>
- string representation for the hand
- </summary>
-	<param name="hand"></param>
-	<returns></returns>
 	<remarks></remarks>
 </member><member name="M:MTG.Form1.Button1_Click(System.Object,System.EventArgs)">
 	<summary>
@@ -67,6 +34,39 @@ MTG
  </summary>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="M:MTG.BurnPlayalgorithms.play(MTG.IMTGDeck)">
+	<summary>
+ draw, play land fire
+ draw, play land fire
+ draw, play land fire
+ draw, play land fire
+ draw, play land fire
+ draw, play land fire
+ draw, play land fire
+ </summary>
+	<param name="deck"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MTG.MTGTurn.handtostring(System.Collections.Generic.LinkedList{MTG.MTGCard})">
+	<summary>
+ string representation for the hand
+ </summary>
+	<param name="hand"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MTG.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:MTG.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:MTG.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
 </member>
 </members>
 </doc>

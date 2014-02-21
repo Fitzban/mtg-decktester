@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports System.Text
+
+Public Class Form1
 
     Public cards As New MTGCardSet
     Public mdeck As IMTGDeck
@@ -13,12 +15,13 @@
 
         Dim test As New LinkedList(Of MTGMatchResult)
 
-        For index = 1 To 100
+        loadCards()
+        mdeck = buildDeck(19, 60, cards)
 
-            loadCards()
-            mdeck = buildDeck(19, 60, cards)
+
+        For index = 1 To Integer.Parse(MaskedTextBox1.Text)
+
             mdeck.shuffle()
-            Me.Refresh()
 
             mdeck.algorithm = New BurnPlayalgorithms
             Dim result As MTGMatchResult = mdeck.play
@@ -26,8 +29,20 @@
 
         Next
 
+        Dim counts(6) As Integer
+        For Each r As MTGMatchResult In test
 
+            counts(r.turns(0).turnnumber) += 1
 
+        Next
+
+        Dim ret As New StringBuilder
+        ret.AppendLine("chiusure di terzo: " + counts(3).ToString)
+        ret.AppendLine("chiusure di quarto: " + counts(4).ToString)
+        ret.AppendLine("chiusure di quinto: " + counts(5).ToString)
+        ret.AppendLine("chiusure di sesto: " + counts(6).ToString)
+
+        RichTextBox1.Text = ret.ToString
 
     End Sub
 
@@ -42,7 +57,7 @@
     ''' <remarks></remarks>
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
 
-        
+
         loadCards()
         mdeck = buildDeck(19, 60, cards)
         mdeck.shuffle()
