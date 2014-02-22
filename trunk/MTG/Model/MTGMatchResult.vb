@@ -3,7 +3,9 @@
 Public Class MTGMatchResult
 
     Public turns As New LinkedList(Of IMTGTurn)
-
+    Public turn As Integer ' when most probably wins
+    Public percentage As Integer
+    Public deck As String ' deck 
 
     ReadOnly Property result As String
         Get

@@ -27,6 +27,9 @@ Partial Class Form1
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.deck = New System.Windows.Forms.RichTextBox()
         Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Button1
@@ -51,7 +54,7 @@ Partial Class Form1
         '
         Me.RichTextBox1.Location = New System.Drawing.Point(13, 73)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(854, 520)
+        Me.RichTextBox1.Size = New System.Drawing.Size(854, 615)
         Me.RichTextBox1.TabIndex = 2
         Me.RichTextBox1.Text = ""
         '
@@ -59,7 +62,7 @@ Partial Class Form1
         '
         Me.deck.Location = New System.Drawing.Point(873, 73)
         Me.deck.Name = "deck"
-        Me.deck.Size = New System.Drawing.Size(207, 511)
+        Me.deck.Size = New System.Drawing.Size(256, 615)
         Me.deck.TabIndex = 3
         Me.deck.Text = ""
         '
@@ -72,11 +75,41 @@ Partial Class Form1
         Me.MaskedTextBox1.Text = "100"
         Me.MaskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(201, 15)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 5
+        Me.Button3.Text = "Capodanno"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(201, 43)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 6
+        Me.Button4.Text = "Find deck"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(95, 42)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.TabIndex = 7
+        Me.Label1.Text = "Label1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1092, 653)
+        Me.ClientSize = New System.Drawing.Size(1141, 700)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.MaskedTextBox1)
         Me.Controls.Add(Me.deck)
         Me.Controls.Add(Me.RichTextBox1)
@@ -93,5 +126,8 @@ Partial Class Form1
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents deck As System.Windows.Forms.RichTextBox
     Friend WithEvents MaskedTextBox1 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 
 End Class
