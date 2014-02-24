@@ -101,10 +101,10 @@
         cards.Add(New MTGCard("Lightning Strike", 3, 2))
         cards.Add(New MTGCard("Lightning Strike", 3, 2))
         
-        cards.Add(New MTGCard("Shard Volley", 3, 1))
-        cards.Add(New MTGCard("Shard Volley", 3, 1))
-        cards.Add(New MTGCard("Shard Volley", 3, 1))
-        cards.Add(New MTGCard("Shard Volley", 3, 1))
+        cards.Add(New MTGCard("Shard Volley", 3, 1, False, New MTGDestroyYourLandEffect(1)))
+        cards.Add(New MTGCard("Shard Volley", 3, 1, False, New MTGDestroyYourLandEffect(1)))
+        cards.Add(New MTGCard("Shard Volley", 3, 1, False, New MTGDestroyYourLandEffect(1)))
+        cards.Add(New MTGCard("Shard Volley", 3, 1, False, New MTGDestroyYourLandEffect(1)))
 
         cards.Add(New MTGCard("Searing Spear", 3, 2))
         cards.Add(New MTGCard("Searing Spear", 3, 2))

@@ -182,6 +182,12 @@ Public Class Form1
         Return ret
     End Function
 
+    ''' <summary>
+    ''' Takes the cards ordered by rateo descending.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
 
         deck.Text = ""
