@@ -40,7 +40,7 @@
         While PV > 0 AndAlso turnnumber < 6
 
             turnnumber += 1
-            turn = New MTGTurn(turn.hand, turn.playground, turn.cemetery, deck, turnnumber, turn.totaldamage)
+            turn = New MTGTurn(turn.playground.hand, turn.playground.cardsingame, turn.playground.cemetery, deck, turnnumber, turn.totaldamage)
 
 
             ' draw
@@ -52,7 +52,7 @@
             ' pickup
             Dim cardtoplay As MTGCard = turn.nextcardtoplay
 
-            While cardtoplay IsNot Nothing AndAlso turn.availablelands >= cardtoplay.converted_cost
+            While cardtoplay IsNot Nothing AndAlso turn.playground.availablelands >= cardtoplay.converted_cost
 
                 turn.play(cardtoplay)
                 cardtoplay = turn.nextcardtoplay

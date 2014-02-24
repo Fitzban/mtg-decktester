@@ -88,12 +88,16 @@
     <Compile Include="Interfaces\IMTGDeck.vb" />
     <Compile Include="Interfaces\IMTGTurn.vb" />
     <Compile Include="Model\Algorithms\BurnPlayalgorithms.vb" />
+    <Compile Include="Model\Effects\MTGKindleEffect.vb" />
     <Compile Include="Model\MTGCard.vb" />
+    <Compile Include="Interfaces\IMTGCardEffect.vb" />
+    <Compile Include="Model\MTGCardsDatabase.vb" />
     <Compile Include="Model\MTGCardSet.vb" />
     <Compile Include="Model\MTGDeck.vb" />
     <Compile Include="Model\MTGLastTurn.vb" />
     <Compile Include="Model\MTGMatch.vb" />
     <Compile Include="Model\MTGMatchResult.vb" />
+    <Compile Include="Model\MTGPlayGround.vb" />
     <Compile Include="Model\MTGTurn.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

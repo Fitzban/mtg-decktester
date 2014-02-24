@@ -53,4 +53,8 @@
     Public Sub shuffle2() Implements IMTGDeck.shuffle
         shuffle()
     End Sub
+
+    Public Function getCardsByNAme(name As String) As System.Collections.Generic.IEnumerable(Of MTGCard) Implements IMTGDeck.getCardsByNAme
+        Return From card As MTGCard In _playingdeck Select card Where card.name = name
+    End Function
 End Class

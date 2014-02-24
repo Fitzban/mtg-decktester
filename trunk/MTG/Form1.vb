@@ -2,7 +2,7 @@
 
 Public Class Form1
 
-    Public cards As New MTGCardSet
+    Public db As New MTGCardsDatabase
     Public mdeck As IMTGDeck
 
     ''' <summary>
@@ -15,8 +15,7 @@ Public Class Form1
 
         Dim test As New LinkedList(Of MTGMatchResult)
 
-        loadCards()
-        mdeck = buildDeck(19, 60, cards)
+        mdeck = buildDeck(19, 60, db.cards)
         deck.Text = mdeck.ToString
         Me.Refresh()
 
@@ -59,8 +58,7 @@ Public Class Form1
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
 
 
-        loadCards()
-        mdeck = buildDeck(19, 60, cards)
+        mdeck = buildDeck(19, 60, db.cards)
         mdeck.shuffle()
         deck.Text = mdeck.ToString
         Me.Refresh()
@@ -98,81 +96,7 @@ Public Class Form1
 
     End Function
 
-    Private Sub loadCards()
-        cards = New MTGCardSet
-        cards.Add(New MTGCard("Incinerate", 3, 2))
-        cards.Add(New MTGCard("Incinerate", 3, 2))
-        cards.Add(New MTGCard("Incinerate", 3, 2))
-        cards.Add(New MTGCard("Incinerate", 3, 2))
-        cards.Add(New MTGCard("Magma Jet", 2, 2))
-        cards.Add(New MTGCard("Magma Jet", 2, 2))
-        cards.Add(New MTGCard("Magma Jet", 2, 2))
-        cards.Add(New MTGCard("Magma Jet", 2, 2))
-        cards.Add(New MTGCard("Lightning Bolt", 3, 1))
-        cards.Add(New MTGCard("Lightning Bolt", 3, 1))
-        cards.Add(New MTGCard("Lightning Bolt", 3, 1))
-        cards.Add(New MTGCard("Lightning Bolt", 3, 1))
-        cards.Add(New MTGCard("Price of Progress", 2, 2))
-        cards.Add(New MTGCard("Price of Progress", 2, 2))
-        cards.Add(New MTGCard("Price of Progress", 2, 2))
-        cards.Add(New MTGCard("Price of Progress", 2, 2))
-        cards.Add(New MTGCard("Chain Lightning", 3, 1))
-        cards.Add(New MTGCard("Chain Lightning", 3, 1))
-        cards.Add(New MTGCard("Chain Lightning", 3, 1))
-        cards.Add(New MTGCard("Chain Lightning", 3, 1))
-        cards.Add(New MTGCard("Barbarian Ring", 2, 1))
-        cards.Add(New MTGCard("Barbarian Ring", 2, 1))
-        cards.Add(New MTGCard("Barbarian Ring", 2, 1))
-        cards.Add(New MTGCard("Barbarian Ring", 2, 1))
-        cards.Add(New MTGCard("Rift Bolt", 3, 1))
-        cards.Add(New MTGCard("Rift Bolt", 3, 1))
-        cards.Add(New MTGCard("Rift Bolt", 3, 1))
-        cards.Add(New MTGCard("Rift Bolt", 3, 1))
-        cards.Add(New MTGCard("Flamebreak", 3, 3))
-        cards.Add(New MTGCard("Flamebreak", 3, 3))
-        cards.Add(New MTGCard("Flamebreak", 3, 3))
-        cards.Add(New MTGCard("Flamebreak", 3, 3))
-        cards.Add(New MTGCard("Lava Spike", 3, 1))
-        cards.Add(New MTGCard("Lava Spike", 3, 1))
-        cards.Add(New MTGCard("Lava Spike", 3, 1))
-        cards.Add(New MTGCard("Lava Spike", 3, 1))
-        cards.Add(New MTGCard("Fireblast", 4, 2))
-        cards.Add(New MTGCard("Fireblast", 4, 2))
-        cards.Add(New MTGCard("Fireblast", 4, 2))
-        cards.Add(New MTGCard("Fireblast", 4, 2))
-        cards.Add(New MTGCard("Firebolt", 2, 1))
-        cards.Add(New MTGCard("Firebolt", 2, 1))
-        cards.Add(New MTGCard("Firebolt", 2, 1))
-        cards.Add(New MTGCard("Firebolt", 2, 1))
-        cards.Add(New MTGCard("Flames of the Blood Hand", 4, 3))
-        cards.Add(New MTGCard("Flames of the Blood Hand", 4, 3))
-        cards.Add(New MTGCard("Flames of the Blood Hand", 4, 3))
-        cards.Add(New MTGCard("Flames of the Blood Hand", 4, 3))
-        cards.Add(New MTGCard("Volcanic Fallout", 3, 2))
-        cards.Add(New MTGCard("Volcanic Fallout", 3, 2))
-        cards.Add(New MTGCard("Volcanic Fallout", 3, 2))
-        cards.Add(New MTGCard("Volcanic Fallout", 3, 2))
-        cards.Add(New MTGCard("Burst Lightning", 2, 1))
-        cards.Add(New MTGCard("Burst Lightning", 2, 1))
-        cards.Add(New MTGCard("Burst Lightning", 2, 1))
-        cards.Add(New MTGCard("Burst Lightning", 2, 1))
-        cards.Add(New MTGCard("Sulfuric Vortex", 2, 3))
-        cards.Add(New MTGCard("Sulfuric Vortex", 2, 3))
-        cards.Add(New MTGCard("Sulfuric Vortex", 2, 3))
-        cards.Add(New MTGCard("Sulfuric Vortex", 2, 3))
-        cards.Add(New MTGCard("Chain of Plasma", 3, 2))
-        cards.Add(New MTGCard("Chain of Plasma", 3, 2))
-        cards.Add(New MTGCard("Chain of Plasma", 3, 2))
-        cards.Add(New MTGCard("Chain of Plasma", 3, 2))
-        cards.Add(New MTGCard("Pyrostatic Pillar", 2, 3))
-        cards.Add(New MTGCard("Pyrostatic Pillar", 2, 3))
-        cards.Add(New MTGCard("Pyrostatic Pillar", 2, 3))
-        cards.Add(New MTGCard("Pyrostatic Pillar", 2, 3))
-        cards.Add(New MTGCard("Flame Rift", 4, 2))
-        cards.Add(New MTGCard("Flame Rift", 4, 2))
-        cards.Add(New MTGCard("Flame Rift", 4, 2))
-        cards.Add(New MTGCard("Flame Rift", 4, 2))
-    End Sub
+    
 
     Private Function buildCapodanno() As IMTGDeck
         Dim ret As New MTGDeck
@@ -252,7 +176,7 @@ Public Class Form1
 
         ' add the cards taking by rateo from the higest
         Dim sourceries As Integer = 40
-        Dim pick As List(Of MTGCard) = (From y As MTGCard In cards.library.AsEnumerable Select y Order By y.rateo Descending).Take(sourceries).ToList
+        Dim pick As List(Of MTGCard) = (From y As MTGCard In db.cards.library.AsEnumerable Select y Order By y.rateo Descending).Take(sourceries).ToList
         ret.addRange(pick)
 
         Return ret
@@ -264,7 +188,6 @@ Public Class Form1
         deck.Refresh()
         Dim test As New LinkedList(Of MTGMatchResult)
 
-        loadCards()
         mdeck = takeordered()
         deck.Text = mdeck.ToString
         Me.Refresh()
@@ -306,12 +229,11 @@ Public Class Form1
         Dim results As New MTGMatchResult
         results.percentage = Integer.MinValue
         results.turn = Integer.MaxValue
-        loadCards()
-
+        
         For index = 1 To 5000
 
             ' build the deck
-            Dim mdeck As IMTGDeck = buildDeck(19, 60, cards)
+            Dim mdeck As IMTGDeck = buildDeck(19, 60, db.cards)
             Me.Label1.Text = "test : " & index.ToString
             Me.Label1.Refresh()
 
