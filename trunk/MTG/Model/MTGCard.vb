@@ -8,8 +8,7 @@
     ReadOnly Property rateo As Double
         Get
             If island Then Return 0
-            If converted_cost = 0 And damage > 0 Then Return Double.MaxValue
-            Return damage / converted_cost
+            Return (damage / (converted_cost * 1.5 + 1))
         End Get
     End Property
 
