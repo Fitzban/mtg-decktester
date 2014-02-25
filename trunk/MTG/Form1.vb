@@ -4,6 +4,7 @@ Public Class Form1
 
     Public db As New MTGCardsDatabase
     Public mdeck As IMTGDeck
+    Private _deckbuilder As New MTGDeckBuilder
 
     ''' <summary>
     ''' Loads the library
@@ -15,7 +16,7 @@ Public Class Form1
 
         Dim test As New LinkedList(Of MTGMatchResult)
 
-        mdeck = buildDeck(19, 60, db.cards)
+        mdeck = _deckbuilder.buildDeck(19, 60, db.cards)
         deck.Text = mdeck.ToString
         Me.Refresh()
 
@@ -58,7 +59,7 @@ Public Class Form1
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
 
 
-        mdeck = buildDeck(19, 60, db.cards)
+        mdeck = _deckbuilder.buildDeck(19, 60, db.cards)
         mdeck.shuffle()
         deck.Text = mdeck.ToString
         Me.Refresh()
@@ -69,34 +70,6 @@ Public Class Form1
         RichTextBox1.Text = result.result
 
     End Sub
-
-    ''' <summary>
-    ''' takes 
-    ''' </summary>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Private Function buildDeck(mountainsn As Integer, cardsn As Integer, mcards As IMTGCardsSet) As IMTGDeck
-
-        Dim ret As New MTGDeck
-        Dim x As Integer = mountainsn
-
-        ' add the lands
-        While x > 0
-            ret.Add(New MTGCard("Mountain", 0, 0, True))
-            x -= 1
-        End While
-
-        ' add the cards
-        Dim sourceries As Integer = cardsn - mountainsn
-
-        ret.addRange(mcards.take(sourceries).ToList)
-
-
-        Return ret
-
-    End Function
-
-    
 
     Private Function buildCapodanno() As IMTGDeck
         Dim ret As New MTGDeck
@@ -239,7 +212,7 @@ Public Class Form1
         For index = 1 To 5000
 
             ' build the deck
-            Dim mdeck As IMTGDeck = buildDeck(19, 60, db.cards)
+            Dim mdeck As IMTGDeck = _deckbuilder.buildDeck(19, 60, db.cards)
             Me.Label1.Text = "test : " & index.ToString
             Me.Label1.Refresh()
 
@@ -299,5 +272,83 @@ Public Class Form1
         Me.deck.Text = results.deck
 
     End Sub
+
+    ''' <summary>
+    ''' generare 100 deck e testarli per estrare il migliore (quello che chiude meglio 50 match)
+    '''
+    ''' farlo 100 volte (a questo punto ho i 100 migliori deck generati, iniziano gli accoppiamenti)
+    ''' 
+    ''' prendere due deck
+    ''' scegliere un taglio
+    ''' sostituire deck1 da 0 a taglio con deck2 da 0 a taglio
+    ''' ripetere fino ad esaurimento deck
+    ''' 
+    ''' integrare con deck mancanti
+    ''' 
+    ''' (mutazioni genetiche, ogni carta ha il 0.5% di probabilita' di mutare con una altra carta a caso. Per ogni deck.)
+    ''' 
+    ''' testare i nuovi deck generati per estrarre il migliore (quello che chiude meglio su 50 match)
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
+
+        Dim decks As New List(Of IMTGDeck)(100)
+        Dim genetico As New MTGGenetico
+        Dim results As New MTGMatchResult
+        results.percentage = Integer.MinValue
+        results.turn = Integer.MaxValue
+
+
+        ' fare 100 volte 
+        For index = 1 To 100
+            ' generare 100 deck e testarli per estrare il migliore (quello che chiude meglio su 50 match)
+            decks.Add(genetico.bestDeckOutOf100)
+        Next
+
+        ' accoppiarsi
+        Dim newdecks As New List(Of IMTGDeck)(100)
+        newdecks.AddRange(genetico.accoppiareDeck(decks))
+
+        ' integrare con deck mancanti
+        For index = 1 To 50
+            newdecks.Add(genetico.bestDeckOutOf100)
+        Next
+
+
+        ' estrarre il migliore
+        For index = 1 To 100
+
+            ' build the deck
+            decks(index).algorithm = New BurnPlayalgorithms
+            Dim test As New LinkedList(Of MTGMatchResult)
+
+            ' test it
+            For index2 = 1 To 50
+                decks(index).shuffle()
+                Dim result As MTGMatchResult = decks(index).play
+                test.AddLast(result)
+            Next
+
+            ' read the results
+            Dim counts(6) As Integer
+            For Each r As MTGMatchResult In test
+                counts(r.turns(0).turnnumber) += 1
+            Next
+
+            '' store the maximum victories
+            Dim percentage As Integer = counts(3) * 8 + counts(4) * 4 + counts(5) * 2 + counts(6)
+            If results.percentage < percentage Then
+                results.percentage = percentage
+                Me.deck.Text = results.deck
+            End If
+
+        Next
+
+
+    End Sub
+
+
 End Class
 

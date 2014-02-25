@@ -8,4 +8,5 @@
     Sub addRange(cards As List(Of MTGCard))
 
     Property algorithm As IMTGAlgorithm
+    ReadOnly Property cards As List(Of MTGCard)
 End Interface

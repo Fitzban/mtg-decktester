@@ -37,6 +37,7 @@
 
 
         result.turns.AddLast(turn)
+        deck.shuffle()
         While PV > 0 AndAlso turnnumber < 6
 
             turnnumber += 1

@@ -7,11 +7,7 @@
     Public Function play() As MTGMatchResult Implements IMTGDeck.play
 
         If _algo Is Nothing Then Return Nothing
-        _playingdeck = New List(Of MTGCard)(library.Count)
-
-        For Each c As MTGCard In library
-            _playingdeck.Add(c)
-        Next
+        If _playingdeck Is Nothing Then init()
 
         Return _algo.play(Me)
 
@@ -37,6 +33,7 @@
     End Sub
 
     Public Function draw() As MTGCard Implements IMTGDeck.draw
+        If _playingdeck Is Nothing OrElse _playingdeck.Count = 0 Then init()
         Dim ret As MTGCard = _playingdeck(0)
         _playingdeck.RemoveAt(0)
         Return ret
@@ -57,4 +54,22 @@
     Public Function getCardsByNAme(name As String) As System.Collections.Generic.IEnumerable(Of MTGCard) Implements IMTGDeck.getCardsByNAme
         Return From card As MTGCard In _playingdeck Select card Where card.name = name
     End Function
+
+
+
+    Private Sub init()
+
+        _playingdeck = New List(Of MTGCard)(library.Count)
+
+        For Each c As MTGCard In library
+            _playingdeck.Add(c)
+        Next
+    End Sub
+
+    Public ReadOnly Property cards As System.Collections.Generic.List(Of MTGCard) Implements IMTGDeck.cards
+        Get
+            If _playingdeck Is Nothing Then init()
+            Return _playingdeck
+        End Get
+    End Property
 End Class

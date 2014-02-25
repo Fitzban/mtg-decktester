@@ -88,6 +88,8 @@
     <Compile Include="Interfaces\IMTGDeck.vb" />
     <Compile Include="Interfaces\IMTGTurn.vb" />
     <Compile Include="Model\Algorithms\BurnPlayalgorithms.vb" />
+    <Compile Include="Model\Algorithms\MTGDeckBuilder.vb" />
+    <Compile Include="Model\Algorithms\MTGGenetico.vb" />
     <Compile Include="Model\Effects\MTGDestroyYourLandEffect.vb" />
     <Compile Include="Model\Effects\MTGKindleEffect.vb" />
     <Compile Include="Model\MTGCard.vb" />
