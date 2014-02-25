@@ -267,11 +267,11 @@ Public Class Form1
 
             Dim ret As New StringBuilder
             '' store the maximum victories
-            Dim percentage As Integer = counts(4)
+            Dim percentage As Integer = counts(3) * 8 + counts(4) * 4 + counts(5) * 2 + counts(6)
             If results.percentage < percentage Then
 
                 results.percentage = percentage
-
+                ret.AppendLine("chiusure di terzo: " + counts(3).ToString)
                 ret.AppendLine("chiusure di quarto: " + counts(4).ToString)
                 ret.AppendLine("chiusure di quinto: " + counts(5).ToString)
                 ret.AppendLine("chiusure di sesto: " + counts(6).ToString)
@@ -285,6 +285,7 @@ Public Class Form1
             End If
 
             ret = New StringBuilder
+            ret.AppendLine("chiusure di terzo: " + counts(3).ToString)
             ret.AppendLine("chiusure di quarto: " + counts(4).ToString)
             ret.AppendLine("chiusure di quinto: " + counts(5).ToString)
             ret.AppendLine("chiusure di sesto: " + counts(6).ToString)
