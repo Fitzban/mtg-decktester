@@ -2,15 +2,8 @@
 
 
 = genetic algorithm =
-generare 1000 deck e testarli per estrare il migliore (quello che chiude maggiormente di quarta su 250 match)
+iterare l'accopiamento 50 volte
 
-farlo 100 volte
-(a questo punto ho i 100 migliori deck generati, iniziano gli accoppiamenti)
-
-  * prendere due deck
-  * scegliere un taglio
-  * sostituire deck1 da 0 a taglio con deck2 da 0 a taglio
-  * ripetere fino ad esaurimento deck
-(mutazioni genetiche, ogni carta ha il 0.5% di probabilita' di mutare con una altra carta a caso. Per ogni deck.)
-
-testare i nuovi deck generati per estrarre il migliore (quello che chiude maggiormente di quarta su 250 match)
+valutare
+* mutazioni genetiche, ogni carta ha il 0.5% di probabilita' di mutare con una altra carta a caso. Per ogni deck.
+* bilanciamento terre come parametro casuale.
