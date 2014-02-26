@@ -83,6 +83,7 @@
 
             While index2 < 60
                 tmpdeck.library.AddLast(decks(index + 1).draw)
+                index2 += 1
             End While
 
             ret.Add(tmpdeck)
