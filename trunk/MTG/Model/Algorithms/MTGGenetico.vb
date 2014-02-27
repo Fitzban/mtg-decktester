@@ -68,7 +68,7 @@
         Dim ret As New List(Of IMTGDeck)
 
         ' prendere due deck
-        For index = 1 To 100 Step 2
+        For index = 0 To 100 Step 2
 
             ' scegliere un taglio
             Dim cut As Integer = rnd.Next(60)

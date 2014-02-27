@@ -8,6 +8,10 @@
 
     Private Sub loadCards()
         cards = New MTGCardSet
+        cards.Add(New MTGCard("Lightning Strike", 3, 2))
+        cards.Add(New MTGCard("Lightning Strike", 3, 2))
+        cards.Add(New MTGCard("Lightning Strike", 3, 2))
+        cards.Add(New MTGCard("Lightning Strike", 3, 2))
         cards.Add(New MTGCard("Incinerate", 3, 2))
         cards.Add(New MTGCard("Incinerate", 3, 2))
         cards.Add(New MTGCard("Incinerate", 3, 2))

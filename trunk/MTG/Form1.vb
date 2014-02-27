@@ -12,7 +12,7 @@ Public Class Form1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_BuildAndTest(sender As System.Object, e As System.EventArgs) Handles Button1.Click
 
         Dim test As New LinkedList(Of MTGMatchResult)
 
@@ -56,7 +56,7 @@ Public Class Form1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+    Private Sub Button2_BuildAndTestOneTime(sender As System.Object, e As System.EventArgs) Handles Button2.Click
 
 
         mdeck = _deckbuilder.buildDeck(19, 60, db.cards)
@@ -161,7 +161,7 @@ Public Class Form1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
+    Private Sub Button3_BiuldOrderedAndTest(sender As System.Object, e As System.EventArgs) Handles Button3.Click
 
         deck.Text = ""
         deck.Refresh()
@@ -203,12 +203,12 @@ Public Class Form1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
+    Private Sub Button4_Test1000decks(sender As System.Object, e As System.EventArgs) Handles Button4.Click
 
         Dim results As New MTGMatchResult
         results.percentage = Integer.MinValue
         results.turn = Integer.MaxValue
-        
+
         For index = 1 To 5000
 
             ' build the deck
@@ -292,7 +292,7 @@ Public Class Form1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
+    Private Sub Button5_Genetic(sender As System.Object, e As System.EventArgs) Handles Button5.Click
 
         Dim decks As New List(Of IMTGDeck)(100)
         Dim genetico As New MTGGenetico
