@@ -60,7 +60,6 @@
     ''' ripetere fino ad esaurimento deck
     ''' </summary>
     ''' <param name="decks"></param>
-    ''' <returns>Half of the original decks</returns>
     ''' <remarks></remarks>
     Public Function accoppiareDeck(decks As List(Of IMTGDeck)) As List(Of IMTGDeck)
 
@@ -68,7 +67,7 @@
         Dim ret As New List(Of IMTGDeck)
 
         ' prendere due deck
-        For index = 0 To 100 Step 2
+        For index = 0 To decks.Count - 2 Step 2
 
             ' scegliere un taglio
             Dim cut As Integer = rnd.Next(60)
@@ -87,6 +86,21 @@
             End While
 
             ret.Add(tmpdeck)
+
+            ' creare deck con deck2(0-taglio),deck1(taglio+1,end)
+            tmpdeck = New MTGDeck
+            For index2 = 0 To cut
+                tmpdeck.library.AddLast(decks(index + 1).draw)
+                decks(index).draw()
+            Next
+
+            While index2 < 60
+                tmpdeck.library.AddLast(decks(index).draw)
+                index2 += 1
+            End While
+
+            ret.Add(tmpdeck)
+
         Next
 
         Return ret

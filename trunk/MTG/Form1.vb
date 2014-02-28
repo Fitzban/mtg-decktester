@@ -189,6 +189,7 @@ Public Class Form1
         Next
 
         Dim ret As New StringBuilder
+        ret.AppendLine("value: " + (counts(3) * 8 + counts(4) * 4 + counts(5) * 2 + counts(6)).ToString)
         ret.AppendLine("chiusure di terzo: " + counts(3).ToString)
         ret.AppendLine("chiusure di quarto: " + counts(4).ToString)
         ret.AppendLine("chiusure di quinto: " + counts(5).ToString)
@@ -301,50 +302,78 @@ Public Class Form1
         results.turn = Integer.MaxValue
 
 
-        ' fare 100 volte 
+        ' generare popolazione
         For index = 1 To 100
+
+            Me.Label1.Text = index.ToString
+            Me.Label1.Refresh()
+
             ' generare 100 deck e testarli per estrare il migliore (quello che chiude meglio su 50 match)
             decks.Add(genetico.bestDeckOutOf100)
         Next
 
-        ' accoppiarsi
+        ' cross over
         Dim newdecks As New List(Of IMTGDeck)(100)
         newdecks.AddRange(genetico.accoppiareDeck(decks))
 
-        ' integrare con deck mancanti
-        For index = 1 To 50
-            newdecks.Add(genetico.bestDeckOutOf100)
-        Next
+        ' iterate
+        For indexx = 1 To Integer.Parse(iterazionigenetico.Text)
+            Me.Label1.Text = indexx.ToString
+            Me.Label1.Refresh()
 
+            ' estrarre il migliore
+            For index = 1 To decks.Count - 1
 
-        ' estrarre il migliore
-        For index = 1 To 100
+                ' build the deck
+                If newdecks(index).algorithm Is Nothing Then newdecks(index).algorithm = New BurnPlayalgorithms
+                Dim test As New LinkedList(Of MTGMatchResult)
 
-            ' build the deck
-            decks(index).algorithm = New BurnPlayalgorithms
-            Dim test As New LinkedList(Of MTGMatchResult)
+                ' test it
+                For index2 = 1 To 50
+                    newdecks(index).shuffle()
+                    Dim result As MTGMatchResult = newdecks(index).play
+                    test.AddLast(result)
+                Next
 
-            ' test it
-            For index2 = 1 To 50
-                decks(index).shuffle()
-                Dim result As MTGMatchResult = decks(index).play
-                test.AddLast(result)
+                ' read the results
+                Dim counts(6) As Integer
+                For Each r As MTGMatchResult In test
+                    counts(r.turns(0).turnnumber) += 1
+                Next
+
+                '' store the maximum victories
+                Dim percentage As Integer = counts(3) * 8 + counts(4) * 4 + counts(5) * 2 + counts(6)
+                If results.percentage < percentage Then
+                    results.percentage = percentage
+                    results.deck = decks(index).ToString
+                    Dim tmp As New StringBuilder
+                    tmp.Append("value: ")
+                    tmp.AppendLine(results.percentage.ToString)
+                    tmp.Append("chiusure 3: ")
+                    tmp.AppendLine(counts(3).ToString)
+                    tmp.Append("chiusure 4: ")
+                    tmp.AppendLine(counts(4).ToString)
+                    tmp.Append("chiusure 5: ")
+                    tmp.AppendLine(counts(5).ToString)
+                    tmp.Append("chiusure 6: ")
+                    tmp.AppendLine(counts(6).ToString)
+                    tmp.AppendLine()
+                    tmp.AppendLine(results.deck)
+                    Me.deck.Text = tmp.ToString
+                    Me.deck.Refresh()
+                End If
+
             Next
 
-            ' read the results
-            Dim counts(6) As Integer
-            For Each r As MTGMatchResult In test
-                counts(r.turns(0).turnnumber) += 1
-            Next
+            ' trovato il migliore ulteriore iterazione con cross over
+            Dim tmpdecks As New List(Of IMTGDeck)(newdecks.AsEnumerable)
+            newdecks = New List(Of IMTGDeck)(genetico.accoppiareDeck(tmpdecks).AsEnumerable)
 
-            '' store the maximum victories
-            Dim percentage As Integer = counts(3) * 8 + counts(4) * 4 + counts(5) * 2 + counts(6)
-            If results.percentage < percentage Then
-                results.percentage = percentage
-                Me.deck.Text = results.deck
-            End If
+
 
         Next
+
+        
 
 
     End Sub

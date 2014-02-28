@@ -31,6 +31,7 @@ Partial Class Form1
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.iterazionigenetico = New System.Windows.Forms.MaskedTextBox()
         Me.SuspendLayout()
         '
         'Button1
@@ -112,11 +113,21 @@ Partial Class Form1
         Me.Button5.Text = "Genetico"
         Me.Button5.UseVisualStyleBackColor = True
         '
+        'iterazionigenetico
+        '
+        Me.iterazionigenetico.Location = New System.Drawing.Point(363, 15)
+        Me.iterazionigenetico.Name = "iterazionigenetico"
+        Me.iterazionigenetico.Size = New System.Drawing.Size(100, 20)
+        Me.iterazionigenetico.TabIndex = 9
+        Me.iterazionigenetico.Text = "100"
+        Me.iterazionigenetico.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1141, 700)
+        Me.Controls.Add(Me.iterazionigenetico)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button4)
@@ -141,5 +152,6 @@ Partial Class Form1
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents iterazionigenetico As System.Windows.Forms.MaskedTextBox
 
 End Class
