@@ -361,6 +361,9 @@ Public Class Form1
                     tmp.AppendLine(results.deck)
                     Me.deck.Text = tmp.ToString
                     Me.deck.Refresh()
+
+                    ' found something new, set the counter to 0. The iterations stops when no more able to find someting better.
+                    indexx = 0
                 End If
 
             Next
