@@ -83,15 +83,21 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Interfaces\IMTGAggressivity.vb" />
     <Compile Include="Interfaces\IMTGAlgorithm.vb" />
     <Compile Include="Interfaces\IMTGCardsSet.vb" />
     <Compile Include="Interfaces\IMTGDeck.vb" />
+    <Compile Include="Interfaces\IMTGSimulation.vb" />
     <Compile Include="Interfaces\IMTGTurn.vb" />
+    <Compile Include="Model\Aggressitivities\MTGAggroAggressivity.vb" />
+    <Compile Include="Model\Aggressitivities\MTGBurnAggressivity.vb" />
     <Compile Include="Model\Algorithms\BurnPlayalgorithms.vb" />
+    <Compile Include="Model\Algorithms\MTGAggroAlgorithm.vb" />
     <Compile Include="Model\Algorithms\MTGDeckBuilder.vb" />
     <Compile Include="Model\Algorithms\MTGGenetico.vb" />
     <Compile Include="Model\Effects\MTGDestroyYourLandEffect.vb" />
     <Compile Include="Model\Effects\MTGKindleEffect.vb" />
+    <Compile Include="Model\Aggressitivities\MTGBaseAggressivity.vb" />
     <Compile Include="Model\MTGCard.vb" />
     <Compile Include="Interfaces\IMTGCardEffect.vb" />
     <Compile Include="Model\MTGCardsDatabase.vb" />
@@ -102,6 +108,7 @@
     <Compile Include="Model\MTGMatchResult.vb" />
     <Compile Include="Model\MTGPlayGround.vb" />
     <Compile Include="Model\MTGTurn.vb" />
+    <Compile Include="Model\Simulations\MTGBurnVSAggroSimulation.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

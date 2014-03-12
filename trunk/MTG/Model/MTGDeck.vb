@@ -3,6 +3,7 @@
     Implements IMTGDeck
 
     Private _playingdeck As List(Of MTGCard)
+    Private _aggressivity As IMTGAggressivity
 
     Public Function play() As MTGMatchResult Implements IMTGDeck.play
 
@@ -60,6 +61,7 @@
     Private Sub init()
 
         _playingdeck = New List(Of MTGCard)(library.Count)
+        _aggressivity = New MTGBaseAggressivity
 
         For Each c As MTGCard In library
             _playingdeck.Add(c)
@@ -71,5 +73,14 @@
             If _playingdeck Is Nothing Then init()
             Return _playingdeck
         End Get
+    End Property
+
+    Public Property aggressivity() As IMTGAggressivity Implements IMTGDeck.aggressivity
+        Get
+            Return _aggressivity
+        End Get
+        Set(value As IMTGAggressivity)
+            _aggressivity = value
+        End Set
     End Property
 End Class

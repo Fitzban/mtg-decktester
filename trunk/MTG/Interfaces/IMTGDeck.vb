@@ -9,4 +9,11 @@
 
     Property algorithm As IMTGAlgorithm
     ReadOnly Property cards As List(Of MTGCard)
+    ''' <summary>
+    ''' This return the average damage done at the turn
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Property aggressivity() As IMTGAggressivity
 End Interface

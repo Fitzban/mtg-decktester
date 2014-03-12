@@ -99,6 +99,10 @@
                 index2 += 1
             End While
 
+            ' TODO
+            ' controllare regole del deck
+            ' idea: se qualche carta ha piu' copie del possibile, sostituirla con una carta a caso. 
+            ' Ecco la mutazione genetica spontanea.
             ret.Add(tmpdeck)
 
         Next

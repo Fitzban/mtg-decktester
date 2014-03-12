@@ -121,4 +121,27 @@ Public Class MTGTurn
         End Get
     End Property
 
+    Public ReadOnly Property damagedone1 As Integer Implements IMTGTurn.damagedone
+        Get
+            Return damagedone
+        End Get
+    End Property
+
+    Public ReadOnly Property deck As IMTGDeck Implements IMTGTurn.deck
+        Get
+            Return playground.grimory
+        End Get
+    End Property
+
+    Public ReadOnly Property playground1 As MTGPlayGround Implements IMTGTurn.playground
+        Get
+            Return playground
+        End Get
+    End Property
+
+    Public ReadOnly Property totaldamage1 As Integer Implements IMTGTurn.totaldamage
+        Get
+            Return totaldamage
+        End Get
+    End Property
 End Class
