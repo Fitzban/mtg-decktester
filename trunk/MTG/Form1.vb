@@ -3,7 +3,6 @@ Imports System.IO
 
 Public Class Form1
 
-    Public db As New MTGCardsDatabase
     Public mdeck As IMTGDeck
     Private _deckbuilder As New MTGDeckBuilder
 
@@ -17,7 +16,7 @@ Public Class Form1
 
         Dim test As New LinkedList(Of MTGMatchResult)
 
-        mdeck = _deckbuilder.buildDeck(19, 60, db.cards)
+        mdeck = _deckbuilder.buildDeck(19, 60)
         deck.Text = mdeck.ToString
         Me.Refresh()
 
@@ -60,7 +59,7 @@ Public Class Form1
     Private Sub Button2_BuildAndTestOneTime(sender As System.Object, e As System.EventArgs) Handles Button2.Click
 
 
-        mdeck = _deckbuilder.buildDeck(19, 60, db.cards)
+        mdeck = _deckbuilder.buildDeck(19, 60)
         mdeck.shuffle()
         deck.Text = mdeck.ToString
         Me.Refresh()
@@ -138,68 +137,6 @@ Public Class Form1
         Return ret
     End Function
 
-    Private Function takeordered() As IMTGDeck
-        Dim ret As New MTGDeck
-        Dim x As Integer = 20
-
-        ' add the lands
-        While x > 0
-            ret.Add(New MTGCard("Mountain", 0, 0, True))
-            x -= 1
-        End While
-
-        ' add the cards taking by rateo from the higest
-        Dim sourceries As Integer = 40
-        Dim pick As List(Of MTGCard) = (From y As MTGCard In db.cards.library.AsEnumerable Select y Order By y.rateo Descending).Take(sourceries).ToList
-        ret.addRange(pick)
-
-        Return ret
-    End Function
-
-    ''' <summary>
-    ''' Takes the cards ordered by rateo descending.
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Private Sub Button3_BiuldOrderedAndTest(sender As System.Object, e As System.EventArgs) Handles Button3.Click
-
-        deck.Text = ""
-        deck.Refresh()
-        Dim test As New LinkedList(Of MTGMatchResult)
-
-        mdeck = takeordered()
-        deck.Text = mdeck.ToString
-        Me.Refresh()
-
-        For index = 1 To Integer.Parse(MaskedTextBox1.Text)
-
-            mdeck.shuffle()
-
-            mdeck.algorithm = New BurnPlayalgorithms
-            Dim result As MTGMatchResult = mdeck.play
-            test.AddLast(result)
-
-        Next
-
-        Dim counts(6) As Integer
-        For Each r As MTGMatchResult In test
-
-            counts(r.turns(0).turnnumber) += 1
-
-        Next
-
-        Dim ret As New StringBuilder
-        ret.AppendLine("value: " + (counts(3) * 8 + counts(4) * 4 + counts(5) * 2 + counts(6)).ToString)
-        ret.AppendLine("chiusure di terzo: " + counts(3).ToString)
-        ret.AppendLine("chiusure di quarto: " + counts(4).ToString)
-        ret.AppendLine("chiusure di quinto: " + counts(5).ToString)
-        ret.AppendLine("chiusure di sesto: " + counts(6).ToString)
-
-        RichTextBox1.Text = ret.ToString
-    End Sub
-
-
 
     ''' <summary>
     ''' generare 100 deck e testarli per estrare il migliore (quello che chiude meglio nei test)
@@ -264,29 +201,37 @@ Public Class Form1
 
                 ' test it
                 For index2 = 1 To num_tests
-                    newdecks(index).shuffle()
-                    Dim result As MTGMatchResult = newdecks(index).play
+                    Dim tmpdeck As IMTGDeck = _deckbuilder.cloneDeck(newdecks(index2))
+                    tmpdeck.shuffle()
+                    Dim result As MTGMatchResult = tmpdeck.play
                     test_list.AddLast(result)
                 Next
 
                 ' read the results
                 Dim counts(6) As Integer
+                Dim lost_num As Integer = 0
                 For Each r As MTGMatchResult In test_list
-                    counts(r.turns(0).turnnumber) += 1
+                    If Not r.turns(0).lost Then
+                        counts(r.turns(0).turnnumber) += 1
+                    Else
+                        lost_num += 1
+                    End If
+
+
                 Next
 
                 '' store the maximum victories
-                Dim percentage As Integer = counts(3) * 8 + counts(4) * 4 + counts(5) * 2 + counts(6)
+                Dim percentage As Integer = counts(4) * 4 + counts(5) * 2 + counts(6)
                 If results.percentage < percentage Then
                     results.percentage = percentage
-                    results.deck = decks(index).ToString
+                    results.deck = newdecks(index).ToString
                     Dim tmp As New StringBuilder
                     tmp.Append("value: ")
                     tmp.Append(results.percentage.ToString)
                     tmp.Append("/")
                     tmp.AppendLine((num_tests * 4).ToString)
-                    tmp.Append("chiusure 3: ")
-                    tmp.AppendLine(counts(3).ToString)
+                    tmp.Append("lost: ")
+                    tmp.AppendLine(lost_num.ToString)
                     tmp.Append("chiusure 4: ")
                     tmp.AppendLine(counts(4).ToString)
                     tmp.Append("chiusure 5: ")

@@ -1,7 +1,5 @@
 ﻿Public Class MTGLastTurn
     Inherits MTGTurn
-    Implements IMTGTurn
-
 
     Sub New(PV As Integer, mturnnumber As Integer)
         endingPV = PV
@@ -12,7 +10,7 @@
 
 
     Public Overrides Function ToString() As String
-        If endingPV > 0 Then Return "LOST!!!"
+        If endingPV > 0 Then MyBase.lost = True : Return "LOST!!!"
         Return "turn#: " + pturnnumber.ToString + " ----- PV: " + endingPV.ToString
     End Function
 

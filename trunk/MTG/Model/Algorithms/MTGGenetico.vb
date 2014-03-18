@@ -1,7 +1,6 @@
 ﻿Public Class MTGGenetico
 
     Private best As IMTGDeck
-    Private _db As New MTGCardsDatabase
     Private _deckbuilder As New MTGDeckBuilder
     Const MAX_DECK_NUM_CARDS As Integer = 60
 
@@ -21,15 +20,16 @@
         For index = 1 To 100
 
             ' build the deck
-            Dim mdeck As IMTGDeck = _deckbuilder.buildDeck(New Random().Next(MAX_DECK_NUM_CARDS), MAX_DECK_NUM_CARDS, _db.cards)
+            Dim mdeck As IMTGDeck = _deckbuilder.buildDeck(New Random().Next(MAX_DECK_NUM_CARDS), MAX_DECK_NUM_CARDS)
             mdeck.algorithm = New BurnPlayalgorithms
             Dim test As New LinkedList(Of MTGMatchResult)
 
             ' test it
             For index2 = 1 To tests
 
-                mdeck.shuffle()
-                Dim result As MTGMatchResult = mdeck.play
+                Dim tmpdeck As IMTGDeck = _deckbuilder.cloneDeck(mdeck)
+                tmpdeck.shuffle()
+                Dim result As MTGMatchResult = tmpdeck.play
                 test.AddLast(result)
 
             Next
@@ -67,49 +67,92 @@
 
         Dim rnd As New Random
         Dim ret As New List(Of IMTGDeck)
+        Dim database As MTGCardsDatabase
+        Dim lands As Integer
+        Dim missing As Integer
 
         ' prendere due deck
         For index = 0 To decks.Count - 2 Step 2
 
             Dim tmpdeck As New MTGDeck
+            Dim tmpdeck2 As New MTGDeck
 
             ' creare deck con deck1(0-30), deck2(0-N)
             Dim index2 As Integer = 0
-            For index2 = 0 To 30
+            For index2 = 0 To New Random().Next(50)
                 tmpdeck.Add(decks(index).draw)
             Next
 
             While tmpdeck.count_cards < 60
-                tmpdeck.Add(decks(index + 1).draw)
+                Dim c As MTGCard = decks(index + 1).draw
+                If Not tmpdeck.Add(c) Then tmpdeck2.Add(c)
             End While
+            If tmpdeck.count_cards >= 60 Then
+                ' the deck is valid, go on. (maybe too much lands)
+                ret.Add(tmpdeck)
+            Else
+                ' this deck is invalid
+                ' add the lands
+                lands = tmpdeck.count_lands
+                missing = tmpdeck.min_lands - lands
+                While missing > 0
+                    tmpdeck.Add(New MTGCard("Mountain", 0, 0, True))
+                End While
+                ' still invalid?
+                If tmpdeck.count_cards < 60 Then
+                    database = New MTGCardsDatabase
 
-            ret.Add(tmpdeck)
+                    While tmpdeck.count_cards < 60
+
+                        Dim card As MTGCard = database.cards.FirstOrDefault
+                        tmpdeck.Add(card)
+                        database.cards.RemoveFirst()
+
+                    End While
+                End If
+
+                ret.Add(tmpdeck)
+
+
+            End If
 
             ' creare deck con le rimanenti del deck2
-            tmpdeck = New MTGDeck
-            While decks(index + 1).cards.Count > 0
-                tmpdeck.Add(decks(index + 1).draw)
+            While decks(index + 1).cards.Count > 0 AndAlso decks(index + 1).cards.Count > 0
+                tmpdeck2.Add(decks(index + 1).draw)
             End While
 
             ' aggiungere dal deck 1 fino ad arrivare a 60  
-            While tmpdeck.count_cards < 60
-                tmpdeck.Add(decks(index).draw)
+            While tmpdeck2.count_cards < 60 AndAlso decks(index).cards.Count > 0
+                tmpdeck2.Add(decks(index).draw)
             End While
 
-            If tmpdeck.count_cards >= 60 Then ret.Add(tmpdeck) : Continue For
+            If tmpdeck2.count_cards >= 60 Then ret.Add(tmpdeck2) : Continue For
 
-            Dim database As New MTGCardsDatabase
+            ' this deck is invalid
+            ' add the lands
+            lands = tmpdeck2.count_lands
+            missing = tmpdeck2.min_lands - lands
+            While missing > 0
+                tmpdeck2.Add(New MTGCard("Mountain", 0, 0, True))
+                missing -= 1
+            End While
 
-            ' ecco che il crossover non ha prodotto un deck valido. Aggiungo carte pescando dalla base ed ho implementato la mutazione genetica.
-            While tmpdeck.count_cards < 60
+            If tmpdeck2.count_cards >= 60 Then ret.Add(tmpdeck2) : Continue For
 
-                Dim card As MTGCard = database.cards.library.FirstOrDefault
-                tmpdeck.Add(card)
-                database.cards.library.RemoveFirst()
+            Dim i As Integer = 0
+
+            ' still invalid.
+            While tmpdeck2.count_cards < 60
+                database = New MTGCardsDatabase
+                Dim card As MTGCard = database.cards(i)
+                i += 1
+                tmpdeck2.Add(card)
+
+                If i > database.cards.Count Then Exit While
 
             End While
 
-            ret.Add(tmpdeck)
+            ret.Add(tmpdeck2)
 
         Next
 

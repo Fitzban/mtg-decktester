@@ -27,7 +27,6 @@ Partial Class Form1
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.deck = New System.Windows.Forms.RichTextBox()
         Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.in_num_deck = New System.Windows.Forms.MaskedTextBox()
@@ -83,15 +82,6 @@ Partial Class Form1
         Me.MaskedTextBox1.Text = "100"
         Me.MaskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(201, 15)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "Capodanno"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -116,7 +106,7 @@ Partial Class Form1
         Me.in_num_deck.Name = "in_num_deck"
         Me.in_num_deck.Size = New System.Drawing.Size(100, 20)
         Me.in_num_deck.TabIndex = 9
-        Me.in_num_deck.Text = "100"
+        Me.in_num_deck.Text = "20"
         Me.in_num_deck.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
         'in_num_deck_test
@@ -126,7 +116,7 @@ Partial Class Form1
         Me.in_num_deck_test.Name = "in_num_deck_test"
         Me.in_num_deck_test.Size = New System.Drawing.Size(100, 20)
         Me.in_num_deck_test.TabIndex = 10
-        Me.in_num_deck_test.Text = "20"
+        Me.in_num_deck_test.Text = "10"
         Me.in_num_deck_test.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
         'l1
@@ -201,7 +191,6 @@ Partial Class Form1
         Me.Controls.Add(Me.in_num_deck)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.MaskedTextBox1)
         Me.Controls.Add(Me.deck)
         Me.Controls.Add(Me.RichTextBox1)
@@ -218,7 +207,6 @@ Partial Class Form1
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents deck As System.Windows.Forms.RichTextBox
     Friend WithEvents MaskedTextBox1 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents in_num_deck As System.Windows.Forms.MaskedTextBox

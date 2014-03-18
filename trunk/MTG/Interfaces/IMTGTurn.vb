@@ -10,6 +10,6 @@
     ReadOnly Property damagedone As Integer
     ReadOnly Property playground As MTGPlayGround
     ReadOnly Property deck As IMTGDeck
-
+    ReadOnly Property lost As Boolean
 
 End Interface

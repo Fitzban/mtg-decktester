@@ -1,14 +1,12 @@
 ﻿Public Class MTGDeck
-    Inherits MTGCardSet
     Implements IMTGDeck
 
-    Private _playingdeck As List(Of MTGCard)
+    Private _playingdeck As New LinkedList(Of MTGCard)
     Private _aggressivity As IMTGAggressivity
+    Private _max_numcards As Integer ' this indicate how many cards max should we have in this deck
+    Public min_lands As Integer = 15
 
     Public Function play() As MTGMatchResult Implements IMTGDeck.play
-
-        If _algo Is Nothing Then Return Nothing
-        If _playingdeck Is Nothing Then init()
 
         Return _algo.play(Me)
 
@@ -24,19 +22,24 @@
         End Set
     End Property
 
+    ''' <summary>
+    ''' No more than 4 each.
+    ''' </summary>
+    ''' <param name="card"></param>
+    ''' <remarks></remarks>
+    Public Function Add(card As MTGCard) As Boolean Implements IMTGDeck.add
 
-    Public Sub addRange(pcards As List(Of MTGCard)) Implements IMTGDeck.addRange
+        If card.island Then _playingdeck.AddLast(card) : Return True
 
-        For Each c As MTGCard In pcards
-            library.AddLast(c)
-        Next
+        If (From x As MTGCard In _playingdeck Select x Where x.name = card.name).Count < card.max_available Then _playingdeck.AddLast(card) : Return True
 
-    End Sub
+        Return False
+
+    End Function
 
     Public Function draw() As MTGCard Implements IMTGDeck.draw
-        If _playingdeck Is Nothing OrElse _playingdeck.Count = 0 Then init()
         Dim ret As MTGCard = _playingdeck(0)
-        _playingdeck.RemoveAt(0)
+        _playingdeck.RemoveFirst()
         Return ret
     End Function
 
@@ -44,33 +47,12 @@
         _playingdeck.Remove(card)
     End Sub
 
-    ''' <summary>
-    ''' shuffle the library
-    ''' </summary>
-    ''' <remarks></remarks>
-    Public Sub shuffle2() Implements IMTGDeck.shuffle
-        shuffle()
-    End Sub
-
     Public Function getCardsByNAme(name As String) As System.Collections.Generic.IEnumerable(Of MTGCard) Implements IMTGDeck.getCardsByNAme
         Return From card As MTGCard In _playingdeck Select card Where card.name = name
     End Function
 
-
-
-    Private Sub init()
-
-        _playingdeck = New List(Of MTGCard)(library.Count)
-        _aggressivity = New MTGBaseAggressivity
-
-        For Each c As MTGCard In library
-            _playingdeck.Add(c)
-        Next
-    End Sub
-
-    Public ReadOnly Property cards As System.Collections.Generic.List(Of MTGCard) Implements IMTGDeck.cards
+    Public ReadOnly Property cards As System.Collections.Generic.LinkedList(Of MTGCard) Implements IMTGDeck.cards
         Get
-            If _playingdeck Is Nothing Then init()
             Return _playingdeck
         End Get
     End Property
@@ -83,4 +65,93 @@
             _aggressivity = value
         End Set
     End Property
+
+    Public ReadOnly Property count_lands As Integer Implements IMTGDeck.count_lands
+        Get
+            Return (From x As MTGCard In _playingdeck Select x Where x.island).Count
+        End Get
+    End Property
+
+    Public ReadOnly Property count_cards As Integer
+        Get
+            Return _playingdeck.Count
+        End Get
+    End Property
+
+    Public Overrides Function ToString() As String
+        Dim ret As New System.Text.StringBuilder
+
+        Dim enume As IEnumerable(Of MTGCard) = From x As MTGCard In _playingdeck Select x Order By x.name
+
+        Dim lands As Integer = (From x As MTGCard In _playingdeck Select x Where x.island).Count
+        ret.AppendLine(lands & " Mountains")
+
+        For Each c As MTGCard In enume
+
+            If Not c.island Then ret.AppendLine(c.name)
+
+        Next
+
+        Return ret.ToString
+    End Function
+    ''' <summary>
+    ''' shuffle the library
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Sub shuffle() Implements IMTGDeck.shuffle
+
+        Dim p1 As New LinkedList(Of LinkedList(Of MTGCard))
+
+        ' 7 piles
+        For index = 1 To 7
+            p1.AddLast(New LinkedList(Of MTGCard))
+        Next
+
+        Dim i As Integer = 0
+        For Each c As MTGCard In Me._playingdeck
+
+            p1.ElementAt(i).AddLast(c)
+            i = (i + 1) Mod 7
+
+        Next
+        _playingdeck.Clear()
+        For Each p As LinkedList(Of MTGCard) In p1
+            For Each c As MTGCard In p
+                _playingdeck.AddLast(c)
+            Next
+        Next
+        p1 = Nothing
+
+        shuffle2()
+        shuffle2()
+        shuffle2()
+        shuffle2()
+        shuffle2()
+        shuffle2()
+        shuffle2()
+
+    End Sub
+
+    Private Sub shuffle2()
+        Dim i As Integer = 0
+        ' shuffle
+        Dim p2 As New LinkedList(Of MTGCard)
+        Dim p3 As New LinkedList(Of MTGCard)
+        Dim cut As Integer = New Random().Next(_playingdeck.Count)
+        For i = 0 To cut
+            p2.AddLast(_playingdeck.ElementAt(i))
+        Next
+        While i < _playingdeck.Count
+            p3.AddLast(_playingdeck.ElementAt(i))
+            i += 1
+        End While
+        Dim top As Integer = _playingdeck.Count
+        _playingdeck.Clear()
+
+        For index = 0 To top
+            If index < p2.Count Then _playingdeck.AddLast(p2.ElementAt(index))
+            If index < p3.Count Then _playingdeck.AddLast(p3.ElementAt(index))
+        Next
+    End Sub
+
 End Class

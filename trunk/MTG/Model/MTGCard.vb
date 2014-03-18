@@ -3,6 +3,7 @@
     Public name As String
     Public damage, converted_cost As Integer
     Public island As Boolean
+    Public max_available As Integer = 4
     Private _effect As IMTGCardEffect
 
     ReadOnly Property rateo As Double

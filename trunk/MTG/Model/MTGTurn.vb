@@ -7,6 +7,7 @@ Public Class MTGTurn
     Public totaldamage As Integer = 0
     Public damagedone As Integer = 0
     Public damages_received As Integer = 0
+    Protected lost As Boolean = False
     Public playground As New MTGPlayGround
     Public played As New LinkedList(Of MTGCard)
     Private actions As New StringBuilder
@@ -142,6 +143,12 @@ Public Class MTGTurn
     Public ReadOnly Property totaldamage1 As Integer Implements IMTGTurn.totaldamage
         Get
             Return totaldamage
+        End Get
+    End Property
+
+    Public ReadOnly Property lost1 As Boolean Implements IMTGTurn.lost
+        Get
+            Return Me.lost
         End Get
     End Property
 End Class
