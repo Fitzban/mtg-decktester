@@ -9,9 +9,16 @@ Public Class MTGCardSet
         library = New LinkedList(Of MTGCard)
     End Sub
 
+    ''' <summary>
+    ''' No more than 4 each.
+    ''' </summary>
+    ''' <param name="card"></param>
+    ''' <remarks></remarks>
     Public Sub Add(card As MTGCard)
 
-        library.AddLast(card)
+        If card.island Then library.AddLast(card) : Exit Sub
+
+        If (From x As MTGCard In library Select x Where x.name = card.name).Count < 4 Then library.AddLast(card)
 
     End Sub
 
@@ -26,6 +33,9 @@ Public Class MTGCardSet
         Dim ret As New StringBuilder
 
         Dim enume As IEnumerable(Of MTGCard) = From x As MTGCard In library Select x Order By x.name
+
+        Dim lands As Integer = (From x As MTGCard In library Select x Where x.island).Count
+        ret.AppendLine(lands & " Mountains")
 
         For Each c As MTGCard In enume
 
@@ -95,4 +105,10 @@ Public Class MTGCardSet
             If index < p3.Count Then library.AddLast(p3.ElementAt(index))
         Next
     End Sub
+
+    Public ReadOnly Property count_cards As Integer Implements IMTGCardsSet.count_cards
+        Get
+            Return library.Count
+        End Get
+    End Property
 End Class
