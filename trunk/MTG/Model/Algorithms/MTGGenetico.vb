@@ -79,13 +79,15 @@
 
             ' creare deck con deck1(0-30), deck2(0-N)
             Dim index2 As Integer = 0
-            For index2 = 0 To New Random().Next(50)
+            For index2 = 0 To New Random().Next(60)
                 tmpdeck.Add(decks(index).draw)
             Next
 
             While tmpdeck.count_cards < 60
+
                 Dim c As MTGCard = decks(index + 1).draw
                 If Not tmpdeck.Add(c) Then tmpdeck2.Add(c)
+
             End While
             If tmpdeck.count_cards >= 60 Then
                 ' the deck is valid, go on. (maybe too much lands)

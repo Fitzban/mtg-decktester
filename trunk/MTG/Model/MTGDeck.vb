@@ -29,7 +29,7 @@
     ''' <remarks></remarks>
     Public Function Add(card As MTGCard) As Boolean Implements IMTGDeck.add
 
-        If card.island Then _playingdeck.AddLast(card) : Return True
+        If card.island AndAlso count_lands < 25 Then _playingdeck.AddLast(card) : Return True
 
         If (From x As MTGCard In _playingdeck Select x Where x.name = card.name).Count < card.max_available Then _playingdeck.AddLast(card) : Return True
 
