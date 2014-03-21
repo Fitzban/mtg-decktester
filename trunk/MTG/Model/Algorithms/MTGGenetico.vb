@@ -76,6 +76,7 @@
 
             Dim tmpdeck As New MTGDeck
             Dim tmpdeck2 As New MTGDeck
+            decks(index).shuffle()
 
             ' creare deck con deck1(0-30), deck2(0-N)
             Dim index2 As Integer = 0
@@ -83,6 +84,7 @@
                 tmpdeck.Add(decks(index).draw)
             Next
 
+            decks(index + 1).shuffle()
             While tmpdeck.count_cards < 60
 
                 Dim c As MTGCard = decks(index + 1).draw
@@ -144,9 +146,12 @@
             Dim i As Integer = 0
 
             ' still invalid.
+            Dim random As New Random
+            database = New MTGCardsDatabase
+            Dim rnd_limit As Integer = database.cards.Count
             While tmpdeck2.count_cards < 60
-                database = New MTGCardsDatabase
-                Dim card As MTGCard = database.cards(i)
+
+                Dim card As MTGCard = database.cards(random.Next(rnd_limit))
                 i += 1
                 tmpdeck2.Add(card)
 
