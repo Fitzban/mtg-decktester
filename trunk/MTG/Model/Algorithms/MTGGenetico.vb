@@ -1,4 +1,6 @@
-﻿Public Class MTGGenetico
+﻿Imports System.Text
+
+Public Class MTGGenetico
 
     Private best As IMTGDeck
     Private _deckbuilder As New MTGDeckBuilder
@@ -53,7 +55,7 @@
 
     End Function
 
-    
+
     ''' <summary>
     ''' prendere due deck
     ''' dal momento che l'ordine non e' importante e devo evitare i doppioni:
@@ -165,6 +167,120 @@
 
         Return ret
     End Function
+
+
+    Public Sub run(num_deck As Integer, num_tests As Integer, numero_iterazioni As Integer, turn_log As Boolean)
+
+        Dim decks As New List(Of IMTGDeck)(num_deck)
+
+        ' generare popolazione
+        For index = 1 To num_deck
+
+            ' generare 100 deck e testarli per estrare il migliore (quello che chiude meglio su 50 match)
+            decks.Add(bestDeckOutOf100(num_tests))
+        Next
+
+
+        ' qui mettiamo tutto, chiusure e deck
+        Dim resultf As New System.IO.StreamWriter("genetico_result.txt")
+
+        iterate(numero_iterazioni, num_deck, num_tests, decks, turn_log, resultf)
+
+        resultf.Close()
+
+    End Sub
+
+
+
+    Private Sub iterate(numero_iterazioni As Integer, num_deck As Integer, num_tests As Integer, decks As List(Of IMTGDeck), turn_log As Boolean, resultf As IO.StreamWriter)
+
+        Dim results As New MTGMatchResult
+        results.percentage = Integer.MinValue
+        results.turn = Integer.MaxValue
+
+        ' cross over
+        Dim newdecks As New List(Of IMTGDeck)(num_deck)
+        newdecks.AddRange(accoppiareDeck(decks))
+
+
+        ' iterate
+        For indexx = 1 To numero_iterazioni
+
+            ' estrarre il migliore
+            For index = 1 To decks.Count - 1
+
+                ' build the deck
+                If newdecks(index).algorithm Is Nothing Then newdecks(index).algorithm = New BurnPlayalgorithms
+                Dim test_list As New LinkedList(Of MTGMatchResult)
+
+                ' test it
+                For index2 = 1 To num_tests
+                    Dim tmpdeck As IMTGDeck = _deckbuilder.cloneDeck(newdecks(index2))
+                    tmpdeck.shuffle()
+                    Dim result As MTGMatchResult = tmpdeck.play
+                    test_list.AddLast(result)
+                Next
+
+                ' read the results
+                Dim counts(6) As Integer
+                Dim lost_num As Integer = 0
+                For Each r As MTGMatchResult In test_list
+                    If Not r.turns(0).lost Then
+                        counts(r.turns(0).turnnumber) += 1
+                    Else
+                        lost_num += 1
+                    End If
+
+
+                Next
+
+                '' store the maximum victories
+                Dim percentage As Integer = counts(4) * 4 + counts(5) * 2 + counts(6)
+                If results.percentage < percentage Then
+                    results.percentage = percentage
+                    results.deck = newdecks(index).ToString
+                    Dim tmp As New StringBuilder
+                    tmp.Append("value: ")
+                    tmp.Append(results.percentage.ToString)
+                    tmp.Append("/")
+                    tmp.AppendLine((num_tests * 4).ToString)
+                    tmp.Append("lost: ")
+                    tmp.AppendLine(lost_num.ToString)
+                    tmp.Append("chiusure 4: ")
+                    tmp.AppendLine(counts(4).ToString)
+                    tmp.Append("chiusure 5: ")
+                    tmp.AppendLine(counts(5).ToString)
+                    tmp.Append("chiusure 6: ")
+                    tmp.AppendLine(counts(6).ToString)
+                    tmp.AppendLine()
+                    tmp.AppendLine(results.deck)
+                    resultf.Write(tmp.ToString)
+
+                    If turn_log Then
+                        ' I generate a file with all the turns.
+                        Dim mlog As New System.IO.StreamWriter(results.percentage.ToString & " out of " & (num_tests * 4).ToString & ".txt")
+                        tmp = New StringBuilder
+                        For Each test As MTGMatchResult In test_list
+                            mlog.WriteLine()
+                            mlog.WriteLine(test.result)
+                        Next
+                        mlog.Close()
+                    End If
+
+                    ' found something new, set the counter to 0. The iterations stops when no more able to find someting better.
+                    indexx = 0
+                End If
+
+            Next
+
+            ' trovato il migliore ulteriore iterazione con cross over
+            Dim tmpdecks As New List(Of IMTGDeck)(newdecks.AsEnumerable)
+            newdecks = New List(Of IMTGDeck)(accoppiareDeck(tmpdecks).AsEnumerable)
+
+
+
+        Next
+    End Sub
 
 
 End Class
