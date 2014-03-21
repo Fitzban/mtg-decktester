@@ -169,30 +169,39 @@ Public Class MTGGenetico
     End Function
 
 
-    Public Sub run(num_deck As Integer, num_tests As Integer, numero_iterazioni As Integer, turn_log As Boolean)
+    Public Sub run(num_deck As Integer, num_tests As Integer, numero_iterazioni As Integer, numero_popolazioni As Integer, turn_log As Boolean)
 
-        Dim decks As New List(Of IMTGDeck)(num_deck)
 
-        ' generare popolazione
-        For index = 1 To num_deck
+        Dim guid As String = Now.Date.Ticks.ToString
+        For index = 1 To numero_popolazioni
 
-            ' generare 100 deck e testarli per estrare il migliore (quello che chiude meglio su 50 match)
-            decks.Add(bestDeckOutOf100(num_tests))
+            Dim decks As New List(Of IMTGDeck)(num_deck)
+
+            ' generare popolazione
+            For index2 = 1 To num_deck
+
+                ' generare 100 deck e testarli per estrare il migliore (quello che chiude meglio su 50 match)
+                decks.Add(bestDeckOutOf100(num_tests))
+            Next
+
+
+
+            ' qui mettiamo tutto, chiusure e deck
+            Dim resultf As New System.IO.StreamWriter(guid & "_popolazione_" & index.ToString & ".txt")
+
+            iterate(numero_iterazioni, num_deck, num_tests, decks, turn_log, resultf, guid, index.ToString)
+
+            resultf.Close()
+
         Next
 
-
-        ' qui mettiamo tutto, chiusure e deck
-        Dim resultf As New System.IO.StreamWriter("genetico_result.txt")
-
-        iterate(numero_iterazioni, num_deck, num_tests, decks, turn_log, resultf)
-
-        resultf.Close()
 
     End Sub
 
 
 
-    Private Sub iterate(numero_iterazioni As Integer, num_deck As Integer, num_tests As Integer, decks As List(Of IMTGDeck), turn_log As Boolean, resultf As IO.StreamWriter)
+    Private Sub iterate(numero_iterazioni As Integer, num_deck As Integer, num_tests As Integer, decks As List(Of IMTGDeck), _
+                        turn_log As Boolean, resultf As IO.StreamWriter, guid As String, popolazione As String)
 
         Dim results As New MTGMatchResult
         results.percentage = Integer.MinValue
@@ -258,7 +267,7 @@ Public Class MTGGenetico
 
                     If turn_log Then
                         ' I generate a file with all the turns.
-                        Dim mlog As New System.IO.StreamWriter(results.percentage.ToString & " out of " & (num_tests * 4).ToString & ".txt")
+                        Dim mlog As New System.IO.StreamWriter(guid & "_popolazione_" & popolazione & "_value_" & results.percentage.ToString & " out of " & (num_tests * 4).ToString & ".txt")
                         tmp = New StringBuilder
                         For Each test As MTGMatchResult In test_list
                             mlog.WriteLine()

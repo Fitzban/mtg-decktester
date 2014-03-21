@@ -162,9 +162,10 @@ Public Class Form1
         Dim num_deck As Integer = Integer.Parse(in_num_deck.Text)
         Dim num_tests As Integer = Integer.Parse(in_num_deck_test.Text)
         Dim numero_iterazioni As Integer = Integer.Parse(in_num_iterazioni_max.Text)
-        
+        Dim numero_popolazioni As Integer = Integer.Parse(num_popolazioni.Text)
+
         Dim genetico As New MTGGenetico
-        genetico.run(num_deck, num_tests, numero_iterazioni, turn_log.Checked)
+        genetico.run(num_deck, num_tests, numero_iterazioni, numero_popolazioni, turn_log.Checked)
 
     End Sub
 

@@ -37,6 +37,8 @@ Partial Class Form1
         Me.in_num_iterazioni_max = New System.Windows.Forms.MaskedTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.turn_log = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.num_popolazioni = New System.Windows.Forms.MaskedTextBox()
         Me.SuspendLayout()
         '
         'Button1
@@ -169,18 +171,38 @@ Partial Class Form1
         Me.turn_log.AutoSize = True
         Me.turn_log.Checked = True
         Me.turn_log.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.turn_log.Location = New System.Drawing.Point(1047, 39)
+        Me.turn_log.Location = New System.Drawing.Point(651, 44)
         Me.turn_log.Name = "turn_log"
         Me.turn_log.Size = New System.Drawing.Size(70, 17)
         Me.turn_log.TabIndex = 16
         Me.turn_log.Text = "Log turns"
         Me.turn_log.UseVisualStyleBackColor = True
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(469, 43)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(81, 13)
+        Me.Label4.TabIndex = 17
+        Me.Label4.Text = "# di popolazioni"
+        '
+        'num_popolazioni
+        '
+        Me.num_popolazioni.Location = New System.Drawing.Point(565, 41)
+        Me.num_popolazioni.Name = "num_popolazioni"
+        Me.num_popolazioni.Size = New System.Drawing.Size(75, 20)
+        Me.num_popolazioni.TabIndex = 18
+        Me.num_popolazioni.Text = "20"
+        Me.num_popolazioni.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1141, 700)
+        Me.Controls.Add(Me.num_popolazioni)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.turn_log)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.in_num_iterazioni_max)
@@ -217,5 +239,7 @@ Partial Class Form1
     Friend WithEvents in_num_iterazioni_max As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents turn_log As System.Windows.Forms.CheckBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents num_popolazioni As System.Windows.Forms.MaskedTextBox
 
 End Class
