@@ -3,8 +3,40 @@
     Public cards As New LinkedList(Of MTGCard)
 
     Sub New()
-        loadCards()
+        loadcardsfromfile()
     End Sub
+
+    Private Sub loadcardsfromfile()
+        Dim streamreader As New IO.StreamReader("cardsdatabase.txt")
+
+        While Not streamreader.EndOfStream
+
+            Dim line As String = streamreader.ReadLine
+            Dim card As MTGCard = getCard(line)
+            If card Is Nothing Then Continue While
+            cards.AddLast(card)
+            cards.AddLast(card)
+            cards.AddLast(card)
+            cards.AddLast(card)
+
+        End While
+
+        streamreader.Close()
+
+        cards.AddLast(New MTGCard("Shard Volley", 3, 1, False, New MTGDestroyYourLandEffect(1)))
+        cards.AddLast(New MTGCard("Shard Volley", 3, 1, False, New MTGDestroyYourLandEffect(1)))
+        cards.AddLast(New MTGCard("Shard Volley", 3, 1, False, New MTGDestroyYourLandEffect(1)))
+        cards.AddLast(New MTGCard("Shard Volley", 3, 1, False, New MTGDestroyYourLandEffect(1)))
+
+    End Sub
+
+    Private Function getCard(line As String) As MTGCard
+        If String.IsNullOrEmpty(line) Then Return Nothing
+
+        Dim tokens As String() = line.Split((","c))
+
+        Return New MTGCard(tokens(0), Integer.Parse(tokens(1)), Integer.Parse(tokens(2)))
+    End Function
 
     Private Sub loadCards()
 
