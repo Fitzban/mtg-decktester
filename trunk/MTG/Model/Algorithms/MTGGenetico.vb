@@ -37,7 +37,7 @@ Public Class MTGGenetico
             Next
 
             ' read the results
-            Dim counts(6) As Integer
+            Dim counts(7) As Integer
             For Each r As MTGMatchResult In test
                 counts(r.turns(0).turnnumber) += 1
             Next
@@ -231,7 +231,7 @@ Public Class MTGGenetico
                 Next
 
                 ' read the results
-                Dim counts(6) As Integer
+                Dim counts(7) As Integer
                 Dim lost_num As Integer = 0
                 For Each r As MTGMatchResult In test_list
                     If Not r.turns(0).lost Then
@@ -243,8 +243,11 @@ Public Class MTGGenetico
 
                 Next
 
+                If lost_num > 0 Then Continue For
+
                 '' store the maximum victories
-                Dim percentage As Integer = counts(4) * 4 + counts(5) * 2 + counts(6)
+                Dim percentage As Integer = counts(4) * 8 + counts(5) * 4 + counts(6) * 2 + counts(7)
+
                 If results.percentage < percentage Then
                     results.percentage = percentage
                     results.deck = newdecks(index).ToString
@@ -252,7 +255,7 @@ Public Class MTGGenetico
                     tmp.Append("value: ")
                     tmp.Append(results.percentage.ToString)
                     tmp.Append("/")
-                    tmp.AppendLine((num_tests * 4).ToString)
+                    tmp.AppendLine((num_tests * 8).ToString)
                     tmp.Append("lost: ")
                     tmp.AppendLine(lost_num.ToString)
                     tmp.Append("chiusure 4: ")
@@ -261,13 +264,15 @@ Public Class MTGGenetico
                     tmp.AppendLine(counts(5).ToString)
                     tmp.Append("chiusure 6: ")
                     tmp.AppendLine(counts(6).ToString)
+                    tmp.Append("chiusure 7: ")
+                    tmp.AppendLine(counts(7).ToString)
                     tmp.AppendLine()
                     tmp.AppendLine(results.deck)
                     resultf.Write(tmp.ToString)
 
                     If turn_log Then
                         ' I generate a file with all the turns.
-                        Dim mlog As New System.IO.StreamWriter(guid & "_popolazione_" & popolazione & "_value_" & results.percentage.ToString & " out of " & (num_tests * 4).ToString & ".txt")
+                        Dim mlog As New System.IO.StreamWriter(guid & "_popolazione_" & popolazione & "_value_" & results.percentage.ToString & " out of " & (num_tests * 8).ToString & ".txt")
                         tmp = New StringBuilder
                         For Each test As MTGMatchResult In test_list
                             mlog.WriteLine()

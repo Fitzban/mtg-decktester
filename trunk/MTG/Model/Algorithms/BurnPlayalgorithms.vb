@@ -4,6 +4,7 @@
     Dim hand As New LinkedList(Of MTGCard)
     Dim playground As New LinkedList(Of MTGCard)
     Dim cemetery As New LinkedList(Of MTGCard)
+    Private _max_turns As Integer = 7
 
     ''' <summary>
     ''' draw, play land fire
@@ -38,7 +39,7 @@
 
         result.turns.AddLast(turn)
         deck.shuffle()
-        While PV > 0 AndAlso turnnumber < 6
+        While PV > 0 AndAlso turnnumber < _max_turns
 
             turnnumber += 1
             turn = New MTGTurn(turn.playground.hand, turn.playground.cardsingame, turn.playground.cemetery, deck, turnnumber, turn.totaldamage)
