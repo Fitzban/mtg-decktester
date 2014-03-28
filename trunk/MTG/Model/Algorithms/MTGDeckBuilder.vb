@@ -26,6 +26,8 @@
 
         While ret.count_cards < cardsn
 
+            If _db.cards.Count = 0 Then ret.Add(New MTGCard("Mountain", 0, 0, True)) : Continue While
+
             tmp = rnd.Next(_db.cards.Count)
             card = _db.cards(tmp)
             ret.Add(card)

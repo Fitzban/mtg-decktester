@@ -16,11 +16,12 @@ Public Class Form1
 
         Dim test As New LinkedList(Of MTGMatchResult)
 
-        mdeck = _deckbuilder.buildDeck(19, 60)
+        mdeck = buildCapodanno()
         deck.Text = mdeck.ToString
         Me.Refresh()
+        Dim numtests As Integer = Integer.Parse(MaskedTextBox1.Text)
 
-        For index = 1 To Integer.Parse(MaskedTextBox1.Text)
+        For index = 1 To numtests
 
             mdeck.shuffle()
 
@@ -28,9 +29,10 @@ Public Class Form1
             Dim result As MTGMatchResult = mdeck.play
             test.AddLast(result)
 
+            mdeck = buildCapodanno()
         Next
 
-        Dim counts(6) As Integer
+        Dim counts(7) As Integer
         For Each r As MTGMatchResult In test
 
             counts(r.turns(0).turnnumber) += 1
@@ -38,10 +40,12 @@ Public Class Form1
         Next
 
         Dim ret As New StringBuilder
-        ret.AppendLine("chiusure di terzo: " + counts(3).ToString)
-        ret.AppendLine("chiusure di quarto: " + counts(4).ToString)
-        ret.AppendLine("chiusure di quinto: " + counts(5).ToString)
-        ret.AppendLine("chiusure di sesto: " + counts(6).ToString)
+        ret.AppendLine("chiusure di 4: " + counts(4).ToString)
+        ret.AppendLine("chiusure di 5: " + counts(5).ToString)
+        ret.AppendLine("chiusure di 6: " + counts(6).ToString)
+        ret.AppendLine("chiusure di 7: " + counts(7).ToString)
+        ret.AppendLine("value: " + (counts(4) * 8 + counts(5) * 4 + counts(6) * 2 + counts(7)).ToString + " out of " + (8 * numtests).ToString)
+
 
         RichTextBox1.Text = ret.ToString
 

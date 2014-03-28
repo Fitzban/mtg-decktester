@@ -213,18 +213,18 @@ Public Class MTGGenetico
 
 
         ' iterate
-        For indexx = 1 To numero_iterazioni
+        For iteration_index = 1 To numero_iterazioni
 
             ' estrarre il migliore
-            For index = 1 To decks.Count - 1
+            For deck_index = 1 To decks.Count - 1
 
                 ' build the deck
-                If newdecks(index).algorithm Is Nothing Then newdecks(index).algorithm = New BurnPlayalgorithms
+                If newdecks(deck_index).algorithm Is Nothing Then newdecks(deck_index).algorithm = New BurnPlayalgorithms
                 Dim test_list As New LinkedList(Of MTGMatchResult)
 
                 ' test it
                 For index2 = 1 To num_tests
-                    Dim tmpdeck As IMTGDeck = _deckbuilder.cloneDeck(newdecks(index2))
+                    Dim tmpdeck As IMTGDeck = _deckbuilder.cloneDeck(newdecks(deck_index))
                     tmpdeck.shuffle()
                     Dim result As MTGMatchResult = tmpdeck.play
                     test_list.AddLast(result)
@@ -233,9 +233,9 @@ Public Class MTGGenetico
                 ' read the results
                 Dim counts(7) As Integer
                 Dim lost_num As Integer = 0
-                For Each r As MTGMatchResult In test_list
-                    If Not r.turns(0).lost Then
-                        counts(r.turns(0).turnnumber) += 1
+                For Each match_result As MTGMatchResult In test_list
+                    If Not match_result.turns(0).lost Then
+                        counts(match_result.turns(0).turnnumber) += 1
                     Else
                         lost_num += 1
                     End If
@@ -243,17 +243,17 @@ Public Class MTGGenetico
 
                 Next
 
-                If lost_num > 0 Then Continue For
+                If lost_num > 50 Then Continue For
 
                 '' store the maximum victories
                 Dim percentage As Integer = counts(4) * 8 + counts(5) * 4 + counts(6) * 2 + counts(7)
 
                 If results.percentage < percentage Then
                     results.percentage = percentage
-                    results.deck = newdecks(index).ToString
+                    results.deck = newdecks(deck_index).ToString
                     Dim tmp As New StringBuilder
                     tmp.Append("value: ")
-                    tmp.Append(results.percentage.ToString)
+                    tmp.Append(percentage.ToString)
                     tmp.Append("/")
                     tmp.AppendLine((num_tests * 8).ToString)
                     tmp.Append("lost: ")
@@ -282,7 +282,7 @@ Public Class MTGGenetico
                     End If
 
                     ' found something new, set the counter to 0. The iterations stops when no more able to find someting better.
-                    indexx = 0
+                    iteration_index = 0
                 End If
 
             Next
