@@ -4,9 +4,9 @@ Public Class MTGTRader
 
     Dim db As New MTGCardsDatabase
 
-    Public Sub getPrices()
+    Public Sub getPrices(setcode As String)
 
-        extractall()
+        extractall(setcode)
 
 
     End Sub
@@ -15,24 +15,26 @@ Public Class MTGTRader
     ''' This routine loop the database to extract prices
     ''' </summary>
     ''' <remarks></remarks>
-    Private Sub extractall()
+    Private Sub extractall(setcode As String)
 
         Dim streamwriter As New StreamWriter("./prices.html")
-        For i = 1 To 6
+        streamwriter.WriteLine("<table>")
+        For i = 1 To 165
 
             If i Mod 5 = 0 Then Threading.Thread.Sleep(30 * 1000)
-            estrailowhigh(i, streamwriter)
+            estrailowhigh(setcode, i, streamwriter)
 
 
         Next
-
+        streamwriter.WriteLine("</table>")
         streamwriter.Close()
+        streamwriter.Dispose()
     End Sub
 
 
-    Private Sub estrailowhigh(cardnumber As Integer, Optional streamwriter As StreamWriter = Nothing)
+    Private Sub estrailowhigh(setcode As String, cardnumber As Integer, Optional streamwriter As StreamWriter = Nothing)
 
-        Dim cardfilepath As String = scaricaCartaByNumber(cardnumber)
+        Dim cardfilepath As String = scaricaCartaByNumber(cardnumber, setcode)
         Dim lowsell As String
         Dim highbuy As String
         Dim cardname As String
@@ -49,7 +51,7 @@ Public Class MTGTRader
 
                     tmpline = sr.ReadLine
                     i += 1
-                    If i = 74 Then cardname = tmpline
+                    If i = 63 Then cardname = tmpline
                     If i = 158 Then lowsell = tmpline
                     If i = 297 Then highbuy = tmpline : Exit Do
 
@@ -61,8 +63,10 @@ Public Class MTGTRader
 
             If streamwriter Is Nothing Then streamwriter = New StreamWriter(cardfilepath + "_out.html")
             streamwriter.WriteLine("<TR >")
-            streamwriter.Write("<td>" & cardname.Replace("h1", "h5") & "<TD/>")
-            streamwriter.WriteLine(lowsell)
+            cardname = cardname.Replace("<title>", "<td>")
+            cardname = cardname.Replace("</title>", ":&nbsp;&nbsp;</td>")
+            streamwriter.Write(cardname)
+            streamwriter.WriteLine(lowsell.Replace("</tr>", ""))
             streamwriter.WriteLine(highbuy)
 
 

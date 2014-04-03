@@ -40,6 +40,7 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.num_popolazioni = New System.Windows.Forms.MaskedTextBox()
         Me.mtgolibrarydownloader = New System.Windows.Forms.Button()
+        Me.setcode = New System.Windows.Forms.MaskedTextBox()
         Me.SuspendLayout()
         '
         'Button1
@@ -206,11 +207,21 @@ Partial Class Form1
         Me.mtgolibrarydownloader.Text = "MTGO library"
         Me.mtgolibrarydownloader.UseVisualStyleBackColor = True
         '
+        'setcode
+        '
+        Me.setcode.Location = New System.Drawing.Point(873, 43)
+        Me.setcode.Name = "setcode"
+        Me.setcode.Size = New System.Drawing.Size(75, 20)
+        Me.setcode.TabIndex = 20
+        Me.setcode.Text = "bng"
+        Me.setcode.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1141, 700)
+        Me.Controls.Add(Me.setcode)
         Me.Controls.Add(Me.mtgolibrarydownloader)
         Me.Controls.Add(Me.num_popolazioni)
         Me.Controls.Add(Me.Label4)
@@ -253,5 +264,6 @@ Partial Class Form1
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents num_popolazioni As System.Windows.Forms.MaskedTextBox
     Friend WithEvents mtgolibrarydownloader As System.Windows.Forms.Button
+    Friend WithEvents setcode As System.Windows.Forms.MaskedTextBox
 
 End Class
