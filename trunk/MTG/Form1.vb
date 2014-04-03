@@ -177,7 +177,7 @@ Public Class Form1
     Private Sub mtgolibrarydownloader_Click(sender As System.Object, e As System.EventArgs) Handles mtgolibrarydownloader.Click
 
         Dim trader As New MTGTRader
-        trader.getPrices(Me.setcode.Text)
+        trader.getPrices(Me.setcode.Text, Integer.Parse(Me.num_carte_set.Text))
         
 
 

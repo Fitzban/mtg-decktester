@@ -3,11 +3,15 @@
 Public Class MTGTRader
 
     Dim db As New MTGCardsDatabase
+    Dim guid As String = Date.Now.Ticks.ToString
+    Private foldername As String
 
-    Public Sub getPrices(setcode As String)
+    Public Sub getPrices(setcode As String, numcard As Integer)
 
-        extractall(setcode)
 
+        foldername = "./" & guid & "-" & setcode & "/"
+        System.IO.Directory.CreateDirectory(foldername)
+        extractall(setcode, numcard)
 
     End Sub
 
@@ -15,11 +19,11 @@ Public Class MTGTRader
     ''' This routine loop the database to extract prices
     ''' </summary>
     ''' <remarks></remarks>
-    Private Sub extractall(setcode As String)
+    Private Sub extractall(setcode As String, numcard As Integer)
 
-        Dim streamwriter As New StreamWriter("./prices.html")
+        Dim streamwriter As New StreamWriter(foldername & "prices.html")
         streamwriter.WriteLine("<table>")
-        For i = 1 To 165
+        For i = 1 To numcard
 
             If i Mod 5 = 0 Then Threading.Thread.Sleep(30 * 1000)
             estrailowhigh(setcode, i, streamwriter)
@@ -39,7 +43,7 @@ Public Class MTGTRader
         Dim highbuy As String
         Dim cardname As String
 
-        'prendi linea 158 - lower sell
+
         Dim linenumber As Integer = 0
         Try
 
@@ -51,8 +55,11 @@ Public Class MTGTRader
 
                     tmpline = sr.ReadLine
                     i += 1
+                    ' card name
                     If i = 63 Then cardname = tmpline
+                    ' lower sell
                     If i = 158 Then lowsell = tmpline
+                    ' higher buy
                     If i = 297 Then highbuy = tmpline : Exit Do
 
                 Loop
@@ -62,7 +69,12 @@ Public Class MTGTRader
             End Using
 
             If streamwriter Is Nothing Then streamwriter = New StreamWriter(cardfilepath + "_out.html")
-            streamwriter.WriteLine("<TR >")
+            If cardnumber Mod 2 = 0 Then
+                streamwriter.WriteLine("<TR >")
+            Else
+                streamwriter.WriteLine("<TR bgcolor=""#999999"">")
+            End If
+
             cardname = cardname.Replace("<title>", "<td>")
             cardname = cardname.Replace("</title>", ":&nbsp;&nbsp;</td>")
             streamwriter.Write(cardname)
@@ -75,7 +87,7 @@ Public Class MTGTRader
 
         End Try
 
-        'prendi linea 297 - higher buy
+
     End Sub
 
 
@@ -96,9 +108,9 @@ Public Class MTGTRader
         '----    + cyclops-of-oneeyed-pass nome carta
         Dim url As String = "http://mtgowikiprice.com/card/" + pset + "/" + cardnumber.ToString + "/"
 
-        My.Computer.Network.DownloadFile(url, pset & cardnumber & ".html")
+        My.Computer.Network.DownloadFile(url, foldername & cardnumber & ".html")
 
-        Return pset & cardnumber & ".html"
+        Return foldername & cardnumber & ".html"
 
     End Function
 
