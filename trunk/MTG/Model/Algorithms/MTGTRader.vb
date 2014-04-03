@@ -18,10 +18,11 @@ Public Class MTGTRader
     Private Sub extractall()
 
         Dim streamwriter As New StreamWriter("./prices.html")
-        For i = 1 To 20
+        For i = 1 To 6
 
-            estrailowhigh(i, streamwriter)
             If i Mod 5 = 0 Then Threading.Thread.Sleep(30 * 1000)
+            estrailowhigh(i, streamwriter)
+
 
         Next
 
@@ -34,6 +35,7 @@ Public Class MTGTRader
         Dim cardfilepath As String = scaricaCartaByNumber(cardnumber)
         Dim lowsell As String
         Dim highbuy As String
+        Dim cardname As String
 
         'prendi linea 158 - lower sell
         Dim linenumber As Integer = 0
@@ -47,6 +49,7 @@ Public Class MTGTRader
 
                     tmpline = sr.ReadLine
                     i += 1
+                    If i = 74 Then cardname = tmpline
                     If i = 158 Then lowsell = tmpline
                     If i = 297 Then highbuy = tmpline : Exit Do
 
@@ -57,6 +60,8 @@ Public Class MTGTRader
             End Using
 
             If streamwriter Is Nothing Then streamwriter = New StreamWriter(cardfilepath + "_out.html")
+            streamwriter.WriteLine("<TR >")
+            streamwriter.Write("<td>" & cardname.Replace("h1", "h5") & "<TD/>")
             streamwriter.WriteLine(lowsell)
             streamwriter.WriteLine(highbuy)
 
