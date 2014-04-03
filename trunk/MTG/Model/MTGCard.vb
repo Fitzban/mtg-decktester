@@ -1,7 +1,7 @@
 ﻿Public Class MTGCard
 
     Public name As String
-    Public damage, converted_cost As Integer
+    Public damage, converted_cost, cardnumber As Integer
     Public island As Boolean
     Public max_available As Integer = 4
     Private _effect As IMTGCardEffect
@@ -12,6 +12,11 @@
             Return (damage / (converted_cost * 1.5 + 1))
         End Get
     End Property
+
+    Sub New(pname As String, pcardnumber As Integer)
+        name = pname
+        cardnumber = pcardnumber
+    End Sub
 
     Sub New(pname As String, pdamage As Integer, pconverted_cost As Integer, Optional pisland As Boolean = False, Optional effect As IMTGCardEffect = Nothing)
         name = pname

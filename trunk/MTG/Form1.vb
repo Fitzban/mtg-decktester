@@ -174,5 +174,15 @@ Public Class Form1
     End Sub
 
 
+    Private Sub mtgolibrarydownloader_Click(sender As System.Object, e As System.EventArgs) Handles mtgolibrarydownloader.Click
+
+        Dim trader As New MTGTRader
+        trader.getPrices()
+        
+
+
+    End Sub
+
+   
 End Class
 

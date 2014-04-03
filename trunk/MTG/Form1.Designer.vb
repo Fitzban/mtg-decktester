@@ -39,6 +39,7 @@ Partial Class Form1
         Me.turn_log = New System.Windows.Forms.CheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.num_popolazioni = New System.Windows.Forms.MaskedTextBox()
+        Me.mtgolibrarydownloader = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -196,11 +197,21 @@ Partial Class Form1
         Me.num_popolazioni.Text = "20"
         Me.num_popolazioni.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
+        'mtgolibrarydownloader
+        '
+        Me.mtgolibrarydownloader.Location = New System.Drawing.Point(873, 13)
+        Me.mtgolibrarydownloader.Name = "mtgolibrarydownloader"
+        Me.mtgolibrarydownloader.Size = New System.Drawing.Size(132, 23)
+        Me.mtgolibrarydownloader.TabIndex = 19
+        Me.mtgolibrarydownloader.Text = "MTGO library"
+        Me.mtgolibrarydownloader.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1141, 700)
+        Me.Controls.Add(Me.mtgolibrarydownloader)
         Me.Controls.Add(Me.num_popolazioni)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.turn_log)
@@ -241,5 +252,6 @@ Partial Class Form1
     Friend WithEvents turn_log As System.Windows.Forms.CheckBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents num_popolazioni As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents mtgolibrarydownloader As System.Windows.Forms.Button
 
 End Class
