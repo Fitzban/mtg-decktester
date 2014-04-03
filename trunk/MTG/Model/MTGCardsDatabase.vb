@@ -2,6 +2,10 @@
 
     Public cards As New LinkedList(Of MTGCard)
 
+    Sub New(load As Boolean)
+
+    End Sub
+
     Sub New()
         loadcardsfromfile()
     End Sub

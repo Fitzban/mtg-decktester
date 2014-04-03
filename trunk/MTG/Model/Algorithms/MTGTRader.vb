@@ -2,7 +2,7 @@
 
 Public Class MTGTRader
 
-    Dim db As New MTGCardsDatabase
+    Dim db As New MTGCardsDatabase(False)
     Dim guid As String = Date.Now.Ticks.ToString
     Private foldername As String
 
