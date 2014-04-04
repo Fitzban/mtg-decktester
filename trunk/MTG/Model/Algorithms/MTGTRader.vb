@@ -6,6 +6,7 @@ Public Class MTGTRader
     Dim db As New MTGCardsDatabase(False)
     Dim guid As String = Date.Now.Ticks.ToString
     Private foldername As String
+    Private blacklist As List(Of String)
 
     Public Sub getPrices(setcode As String, numcard As Integer)
 
@@ -23,7 +24,8 @@ Public Class MTGTRader
     ''' <param name="pset">The set of those cards</param>
     ''' <param name="runtim">true to query the web, false to read the database. When we query the website we suspend 30 seconds every 5 cards.</param>
     ''' <remarks></remarks>
-    Public Sub findBots(cardlist() As String, pset As String, runtim As Boolean, output As RichTextBox)
+    Public Sub findBots(cardlist() As String, pset As String, runtim As Boolean, output As RichTextBox, pblacklist As RichTextBox)
+        blacklist = New List(Of String)(pblacklist.Lines)
         Dim database As Dictionary(Of String, Integer) = loadDatabaseAsDictionary(pset)
         If database Is Nothing Then Exit Sub
 
@@ -41,17 +43,24 @@ Public Class MTGTRader
         output.Clear()
         output.Refresh()
 
-        If cardlist Is Nothing Then output.AppendText("cardlist empty") : Exit Sub
-        If database Is Nothing Then output.AppendText("database empty") : Exit Sub
+        If cardlist Is Nothing Then output.AppendText("cardlist empty" & vbNewLine) : Exit Sub
+        If database Is Nothing Then output.AppendText("database empty" & vbNewLine) : Exit Sub
 
         Dim cardnumber As Integer
+        Dim counter As Integer = 1
         For Each card As String In cardlist
 
-            If Not database.ContainsKey(card) Then output.AppendText("card not found:" & card) : Continue For
+            If counter Mod 9 = 0 Then Threading.Thread.Sleep(30 * 1000)
+
+            card = card.Substring(card.IndexOf(" ") + 1)
+
+            If Not database.ContainsKey(card) Then output.AppendText("card not found:" & card & vbNewLine) : Continue For
 
             cardnumber = database(card)
             output.AppendText(estraiLowHighAsString(pset, cardnumber))
             output.AppendText(vbNewLine)
+            output.Refresh()
+            counter += 1
 
         Next
 
@@ -128,7 +137,7 @@ Public Class MTGTRader
         Dim cardfilepath As String = scaricaCartaByNumber(cardnumber, setcode)
         Dim lowsell As String
         Dim highbuy As String
-        Dim cardname As String
+        Dim cardname, seller As String
         Dim newline As New StringBuilder
 
         Dim linenumber As Integer = 0
@@ -149,9 +158,11 @@ Public Class MTGTRader
                     ' higher buy
                     If i = 297 Then
                         ' now here we found the first buyer, we skip them until we find one with tickets
-                        While Not hasTickets(tmpline)
+                        seller = getName(tmpline)
+                        While Not hasTickets(tmpline) OrElse blacklist.Contains(seller)
                             tmpline = sr.ReadLine
                             tmpline = sr.ReadLine
+                            seller = getName(tmpline)
                         End While
                         highbuy = tmpline : Exit Do
                     End If

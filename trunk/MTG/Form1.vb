@@ -218,7 +218,7 @@ Public Class Form1
         Dim trader As New MTGTRader
 
 
-        trader.findBots(cardlistarray, mset, True, Me.RichTextBox1)
+        trader.findBots(cardlistarray, mset, True, Me.RichTextBox1, Me.bot_black_list)
 
     End Sub
 

@@ -1,0 +1,249 @@
+1,Ajani Goldmane
+2,Ajani's Mantra
+3,Ajani's Pridemate
+4,Angelic Arbiter
+5,Armored Ascension
+6,Assault Griffin
+7,Baneslayer Angel
+8,Blinding Mage
+9,Celestial Purge
+10,Cloud Crusader
+11,Condemn
+12,Day of Judgment
+13,Elite Vanguard
+14,Excommunicate
+15,Goldenglow Moth
+16,Holy Strength
+17,Honor of the Pure
+18,Infantry Veteran
+19,Inspired Charge
+20,Knight Exemplar
+21,Leyline of Sanctity
+22,Mighty Leap
+23,Pacifism
+24,Palace Guard
+25,Roc Egg
+26,Safe Passage
+27,Serra Angel
+28,Serra Ascendant
+29,Siege Mastodon
+30,Silence
+31,Silvercoat Lion
+32,Solemn Offering
+33,Squadron Hawk
+34,Stormfront Pegasus
+35,Sun Titan
+36,Tireless Missionaries
+37,Vengeful Archon
+38,War Priest of Thune
+39,White Knight
+40,Wild Griffin
+41,Æther Adept
+42,Air Servant
+43,Alluring Siren
+44,Armored Cancrix
+45,Augury Owl
+46,Azure Drake
+47,Call to Mind
+48,Cancel
+49,Clone
+50,Cloud Elemental
+51,Conundrum Sphinx
+52,Diminish
+53,Flashfreeze
+54,Foresee
+55,Frost Titan
+56,Harbor Serpent
+57,Ice Cage
+58,Jace Beleren
+59,Jace's Erasure
+60,Jace's Ingenuity
+61,Leyline of Anticipation
+62,Mana Leak
+63,Maritime Guard
+64,Mass Polymorph
+65,Merfolk Sovereign
+66,Merfolk Spy
+67,Mind Control
+68,Negate
+69,Phantom Beast
+70,Preordain
+71,Redirect
+72,Scroll Thief
+73,Sleep
+74,Stormtide Leviathan
+75,Time Reversal
+76,Tome Scour
+77,Traumatize
+78,Unsummon
+79,Wall of Frost
+80,Water Servant
+81,Assassinate
+82,Barony Vampire
+83,Black Knight
+84,Blood Tithe
+85,Bloodthrone Vampire
+86,Bog Raiders
+87,Captivating Vampire
+88,Child of Night
+89,Corrupt
+90,Dark Tutelage
+91,Deathmark
+92,Demon of Death's Gate
+93,Diabolic Tutor
+94,Disentomb
+95,Doom Blade
+96,Duress
+97,Grave Titan
+98,Gravedigger
+99,Haunting Echoes
+100,Howling Banshee
+101,Leyline of the Void
+102,Liliana Vess
+103,Liliana's Caress
+104,Liliana's Specter
+105,Mind Rot
+106,Nantuko Shade
+107,Necrotic Plague
+108,Nether Horror
+109,Nightwing Shade
+110,Phylactery Lich
+111,Quag Sickness
+112,Reassembling Skeleton
+113,Relentless Rats
+114,Rise from the Grave
+115,Rotting Legion
+116,Royal Assassin
+117,Sign in Blood
+118,Stabbing Pain
+119,Unholy Strength
+120,Viscera Seer
+121,Act of Treason
+122,Ancient Hellkite
+123,Arc Runner
+124,Berserkers of Blood Ridge
+125,Bloodcrazed Goblin
+126,Canyon Minotaur
+127,Chandra Nalaar
+128,Chandra's Outrage
+129,Chandra's Spitfire
+130,Combust
+131,Cyclops Gladiator
+132,Demolish
+133,Destructive Force
+134,Earth Servant
+135,Ember Hauler
+136,Fiery Hellhound
+137,Fire Servant
+138,Fireball
+139,Fling
+140,Goblin Balloon Brigade
+141,Goblin Chieftain
+142,Goblin Piker
+143,Goblin Tunneler
+144,Hoarding Dragon
+145,Incite
+146,Inferno Titan
+147,Lava Axe
+148,Leyline of Punishment
+149,Lightning Bolt
+150,Magma Phoenix
+151,Manic Vandal
+152,Prodigal Pyromancer
+153,Pyretic Ritual
+154,Pyroclasm
+155,Reverberate
+156,Shiv's Embrace
+157,Thunder Strike
+158,Volcanic Strength
+159,Vulshok Berserker
+160,Wild Evocation
+161,Acidic Slime
+162,Autumn's Veil
+163,Awakener Druid
+164,Back to Nature
+165,Birds of Paradise
+166,Brindle Boar
+167,Cudgel Troll
+168,Cultivate
+169,Dryad's Favor
+170,Duskdale Wurm
+171,Elvish Archdruid
+172,Fauna Shaman
+173,Fog
+174,Gaea's Revenge
+175,Garruk Wildspeaker
+176,Garruk's Companion
+177,Garruk's Packleader
+178,Giant Growth
+179,Giant Spider
+180,Greater Basilisk
+181,Hornet Sting
+182,Hunters' Feast
+183,Leyline of Vitality
+184,Llanowar Elves
+185,Mitotic Slime
+186,Naturalize
+187,Nature's Spiral
+188,Obstinate Baloth
+189,Overwhelming Stampede
+190,Plummet
+191,Primal Cocoon
+192,Primeval Titan
+193,Prized Unicorn
+194,Protean Hydra
+195,Runeclaw Bear
+196,Sacred Wolf
+197,Spined Wurm
+198,Sylvan Ranger
+199,Wall of Vines
+200,Yavimaya Wurm
+201,Angel's Feather
+202,Brittle Effigy
+203,Crystal Ball
+204,Demon's Horn
+205,Dragon's Claw
+206,Elixir of Immortality
+207,Gargoyle Sentinel
+208,Jinxed Idol
+209,Juggernaut
+210,Kraken's Eye
+211,Ornithopter
+212,Platinum Angel
+213,Sorcerer's Strongbox
+214,Steel Overseer
+215,Stone Golem
+216,Sword of Vengeance
+217,Temple Bell
+218,Triskelion
+219,Voltaic Key
+220,Warlord's Axe
+221,Whispersilk Cloak
+222,Wurm's Tooth
+223,Dragonskull Summit
+224,Drowned Catacomb
+225,Glacial Fortress
+226,Mystifying Maze
+227,Rootbound Crag
+228,Sunpetal Grove
+229,Terramorphic Expanse
+230,Plains
+231,Plains
+232,Plains
+233,Plains
+234,Island
+235,Island
+236,Island
+237,Island
+238,Swamp
+239,Swamp
+240,Swamp
+241,Swamp
+242,Mountain
+243,Mountain
+244,Mountain
+245,Mountain
+246,Forest
+247,Forest
+248,Forest
+249,Forest

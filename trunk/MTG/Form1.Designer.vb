@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
@@ -43,10 +44,11 @@ Partial Class Form1
         Me.setcode = New System.Windows.Forms.MaskedTextBox()
         Me.num_carte_set = New System.Windows.Forms.MaskedTextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.pick_directory = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.bot_black_list = New System.Windows.Forms.RichTextBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -72,17 +74,17 @@ Partial Class Form1
         '
         Me.RichTextBox1.Location = New System.Drawing.Point(13, 294)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(854, 394)
+        Me.RichTextBox1.Size = New System.Drawing.Size(537, 394)
         Me.RichTextBox1.TabIndex = 2
         Me.RichTextBox1.Text = ""
         '
         'deck
         '
-        Me.deck.Location = New System.Drawing.Point(873, 73)
+        Me.deck.Location = New System.Drawing.Point(565, 108)
         Me.deck.Name = "deck"
         Me.deck.Size = New System.Drawing.Size(256, 615)
         Me.deck.TabIndex = 3
-        Me.deck.Text = "Annul" & Global.Microsoft.VisualBasic.ChrW(10) & "Breaching Hyppocamp"
+        Me.deck.Text = resources.GetString("deck.Text")
         '
         'MaskedTextBox1
         '
@@ -220,7 +222,7 @@ Partial Class Form1
         Me.setcode.Name = "setcode"
         Me.setcode.Size = New System.Drawing.Size(75, 20)
         Me.setcode.TabIndex = 20
-        Me.setcode.Text = "ths"
+        Me.setcode.Text = "m12"
         Me.setcode.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
         'num_carte_set
@@ -247,6 +249,15 @@ Partial Class Form1
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(327, 180)
         Me.Panel1.TabIndex = 22
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(226, 78)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(98, 23)
+        Me.Button3.TabIndex = 24
+        Me.Button3.Text = "Find bots"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'pick_directory
         '
@@ -275,20 +286,20 @@ Partial Class Form1
         Me.Label5.TabIndex = 23
         Me.Label5.Text = "set code"
         '
-        'Button3
+        'bot_black_list
         '
-        Me.Button3.Location = New System.Drawing.Point(226, 78)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(98, 23)
-        Me.Button3.TabIndex = 24
-        Me.Button3.Text = "Find bots"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.bot_black_list.Location = New System.Drawing.Point(827, 108)
+        Me.bot_black_list.Name = "bot_black_list"
+        Me.bot_black_list.Size = New System.Drawing.Size(256, 615)
+        Me.bot_black_list.TabIndex = 23
+        Me.bot_black_list.Text = "mojosupernova" & Global.Microsoft.VisualBasic.ChrW(10) & "angelicsupernova" & Global.Microsoft.VisualBasic.ChrW(10) & "thesadbluedoli"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1141, 700)
+        Me.Controls.Add(Me.bot_black_list)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.num_popolazioni)
         Me.Controls.Add(Me.Label4)
@@ -340,5 +351,6 @@ Partial Class Form1
     Public WithEvents num_carte_set As System.Windows.Forms.MaskedTextBox
     Friend WithEvents pick_directory As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents bot_black_list As System.Windows.Forms.RichTextBox
 
 End Class
