@@ -43,6 +43,7 @@ Partial Class Form1
         Me.setcode = New System.Windows.Forms.MaskedTextBox()
         Me.num_carte_set = New System.Windows.Forms.MaskedTextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pick_directory = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
@@ -234,6 +235,7 @@ Partial Class Form1
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel1.Controls.Add(Me.pick_directory)
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.mtgolibrarydownloader)
@@ -243,6 +245,15 @@ Partial Class Form1
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(327, 180)
         Me.Panel1.TabIndex = 22
+        '
+        'pick_directory
+        '
+        Me.pick_directory.Location = New System.Drawing.Point(226, 46)
+        Me.pick_directory.Name = "pick_directory"
+        Me.pick_directory.Size = New System.Drawing.Size(98, 23)
+        Me.pick_directory.TabIndex = 23
+        Me.pick_directory.Text = "Select Directory"
+        Me.pick_directory.UseVisualStyleBackColor = True
         '
         'Label6
         '
@@ -316,5 +327,6 @@ Partial Class Form1
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Public WithEvents num_carte_set As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents pick_directory As System.Windows.Forms.Button
 
 End Class

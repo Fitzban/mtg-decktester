@@ -183,6 +183,25 @@ Public Class Form1
 
     End Sub
 
-   
+  
+
+    Private Sub pick_directory_Click(sender As System.Object, e As System.EventArgs) Handles pick_directory.Click
+        Dim fd As OpenFileDialog = New OpenFileDialog()
+
+
+        fd.Title = "Open File Dialog"
+        fd.InitialDirectory = ".\"
+        fd.Filter = "HTML files (*.html)|*.html|HTML files (*.html)|*.html"
+        fd.FilterIndex = 2
+        fd.Multiselect = True
+        fd.RestoreDirectory = True
+
+        If fd.ShowDialog() = DialogResult.OK Then
+            Dim traderan As New MTGTraderDownloadedCardAnalyzer
+            traderan.analyze(fd.FileNames, Me.RichTextBox1)
+        End If
+
+        
+    End Sub
 End Class
 

@@ -96,6 +96,7 @@
     <Compile Include="Model\Algorithms\MTGDeckBuilder.vb" />
     <Compile Include="Model\Algorithms\MTGGenetico.vb" />
     <Compile Include="Model\Algorithms\MTGTRader.vb" />
+    <Compile Include="Model\Algorithms\MTGTraderDownloadedCardAnalyzer.vb" />
     <Compile Include="Model\Effects\MTGDestroyYourLandEffect.vb" />
     <Compile Include="Model\Effects\MTGKindleEffect.vb" />
     <Compile Include="Model\Aggressitivities\MTGBaseAggressivity.vb" />
