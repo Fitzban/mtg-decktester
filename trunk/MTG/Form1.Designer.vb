@@ -46,6 +46,7 @@ Partial Class Form1
         Me.pick_directory = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -81,7 +82,7 @@ Partial Class Form1
         Me.deck.Name = "deck"
         Me.deck.Size = New System.Drawing.Size(256, 615)
         Me.deck.TabIndex = 3
-        Me.deck.Text = ""
+        Me.deck.Text = "Annul" & Global.Microsoft.VisualBasic.ChrW(10) & "Breaching Hyppocamp"
         '
         'MaskedTextBox1
         '
@@ -219,7 +220,7 @@ Partial Class Form1
         Me.setcode.Name = "setcode"
         Me.setcode.Size = New System.Drawing.Size(75, 20)
         Me.setcode.TabIndex = 20
-        Me.setcode.Text = "bng"
+        Me.setcode.Text = "ths"
         Me.setcode.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
         'num_carte_set
@@ -235,6 +236,7 @@ Partial Class Form1
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Controls.Add(Me.pick_directory)
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.Label5)
@@ -272,6 +274,15 @@ Partial Class Form1
         Me.Label5.Size = New System.Drawing.Size(48, 13)
         Me.Label5.TabIndex = 23
         Me.Label5.Text = "set code"
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(226, 78)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(98, 23)
+        Me.Button3.TabIndex = 24
+        Me.Button3.Text = "Find bots"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -328,5 +339,6 @@ Partial Class Form1
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Public WithEvents num_carte_set As System.Windows.Forms.MaskedTextBox
     Friend WithEvents pick_directory As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
 
 End Class

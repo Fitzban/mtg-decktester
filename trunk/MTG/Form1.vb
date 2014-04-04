@@ -203,5 +203,24 @@ Public Class Form1
 
         
     End Sub
+
+    ''' <summary>
+    ''' This is used to find the bots given a list of cards of a block.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
+
+        Dim mset As String = Me.setcode.Text
+        Dim cardlistarray() As String = Me.deck.Lines
+
+        Dim trader As New MTGTRader
+
+
+        trader.findBots(cardlistarray, mset, True, Me.RichTextBox1)
+
+    End Sub
+
 End Class
 
