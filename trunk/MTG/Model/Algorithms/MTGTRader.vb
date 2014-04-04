@@ -289,7 +289,11 @@ Public Class MTGTRader
         '----    + cyclops-of-oneeyed-pass nome carta
         Dim url As String = "http://mtgowikiprice.com/card/" + pset + "/" + cardnumber.ToString + "/"
 
-        My.Computer.Network.DownloadFile(url, foldername & cardnumber & ".html")
+        Dim filepath As String = foldername & cardnumber & ".html"
+        Dim tmpfile As New FileInfo(filepath)
+        If tmpfile.Exists Then tmpfile.Delete()
+
+        My.Computer.Network.DownloadFile(url, filepath)
 
         Return foldername & cardnumber & ".html"
 
@@ -360,7 +364,11 @@ Public Class MTGTRader
         '----    + cyclops-of-oneeyed-pass nome carta
         Dim url As String = "http://mtgowikiprice.com/card/" + pset + "/" + cardnumber.ToString + "/" + nomecarta.ToLower.Replace(" "c, "-")
 
-        My.Computer.Network.DownloadFile(url, nomecarta + ".html")
+        Dim filepath As String = nomecarta + ".html"
+        Dim tmpfile As New FileInfo(filepath)
+        If tmpfile.Exists Then tmpfile.Delete()
+
+        My.Computer.Network.DownloadFile(url, filepath)
 
 
         Return nomecarta + ".html"

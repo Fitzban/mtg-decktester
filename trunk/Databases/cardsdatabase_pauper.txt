@@ -1,0 +1,11 @@
+Burst Lightning,2,1
+Firebolt,2,1
+Incinerate,3,2
+lava spike,3,1
+Lightning Bolt,3,1
+Lightning Strike,3,2
+Needle drop,1,1
+Searing Spear,3,2
+Rift Bolt,3,1
+Thunderbolt,3,2
+
