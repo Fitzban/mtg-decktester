@@ -20,7 +20,7 @@
                     line_index += 1
 
                     ' go to the card name
-                    If line_index = 63 Then
+                    If line_index = 64 Then
                         cardname = tmpline
                         cardname = cardname.Replace("<title>", "")
                         cardname = cardname.Replace("</title>", "")

@@ -1,0 +1,156 @@
+1,Simic Guildgate
+2,Selesnya Guildgate
+3,Rakdos Guildgate
+4,Orzhov Guildgate
+5,Maze's End
+6,Izzet Guildgate
+7,Gruul Guildgate
+8,Golgari Guildgate
+9,Dimir Guildgate
+10,Boros Guildgate
+11,Azorius Guildgate
+12,Simic Cluestone
+13,Selesnya Cluestone
+14,Rakdos Cluestone
+15,Orzhov Cluestone
+16,Izzet Cluestone
+17,Gruul Cluestone
+18,Golgari Cluestone
+19,Dimir Cluestone
+20,Boros Cluestone
+21,Azorius Cluestone
+22,Wear/Tear
+23,Turn/Burn
+24,Toil/Trouble
+25,Ready/Willing
+26,Protect/Serve
+27,Profit/Loss
+28,Give/Take
+29,Flesh/Blood
+30,Far/Away
+31,Down/Dirty
+32,Catch/Release
+33,Breaking/Entering
+34,Beck/Call
+35,Armed/Dangerous
+36,Alive/Well
+37,Zhur-Taa Druid
+38,Zhur-Taa Ancient
+39,Woodlot Crawler
+40,Warped Physique
+41,Warleader's Helix
+42,Vorel of the Hull Clade
+43,Voice of Resurgence
+44,Viashino Firstblade
+45,Varolz, the Scar-Striped
+46,Unflinching Courage
+47,Trostani's Summoner
+48,Tithe Drinker
+49,Teysa, Envoy of Ghosts
+50,Tajic, Blade of the Legion
+51,Spike Jester
+52,Species Gorger
+53,Sire of Insanity
+54,Sin Collector
+55,Showstopper
+56,Scab-Clan Giant
+57,Savageborn Hydra
+58,Ruric Thar, the Unbowed
+59,Rot Farm Skeleton
+60,Restore the Peace
+61,Render Silent
+62,Reap Intellect
+63,Ral Zarek
+64,Putrefy
+65,Progenitor Mimic
+66,Plasm Capture
+67,Pilfered Plans
+68,Obzedat's Aid
+69,Notion Thief
+70,Nivix Cyclops
+71,Morgue Burst
+72,Mirko Vosk, Mind Drinker
+73,Melek, Izzet Paragon
+74,Maw of the Obzedat
+75,Master of Cruelties
+76,Legion's Initiative
+77,Lavinia of the Tenth
+78,Krasis Incubation
+79,Korozda Gorgon
+80,Jelenn Sphinx
+81,Haunter of Nightveil
+82,Gruul War Chant
+83,Goblin Test Pilot
+84,Gleam of Battle
+85,Gaze of Granite
+86,Fluxcharger
+87,Feral Animist
+88,Exava, Rakdos Blood Witch
+89,Emmara Tandris
+90,Drown in Filth
+91,Dragonshift
+92,Deputy of Acquittals
+93,Debt to the Deathless
+94,Deadbridge Chant
+95,Council of the Absolute
+96,Carnage Gladiator
+97,Bronzebeak Moa
+98,Bred for the Hunt
+99,Boros Battleshaper
+100,Blood Baron of Vizkopa
+101,Blaze Commando
+102,Blast of Genius
+103,Beetleform Mage
+104,Ascended Lawmage
+105,Armored Wolf-Rider
+106,Advent of the Wurm
+107,Thrashing Mossdog
+108,Skylasher
+109,Saruli Gatekeepers
+110,Renegade Krasis
+111,Phytoburst
+112,Mutant's Prey
+113,Mending Touch
+114,Maze Behemoth
+115,Kraul Warrior
+116,Battering Krasis
+117,Weapon Surge
+118,Smelt-Ward Gatekeepers
+119,Rubblebelt Maaka
+120,Riot Piker
+121,Pyrewild Shaman
+122,Punish the Enemy
+123,Possibility Storm
+124,Maze Rusher
+125,Clear a Path
+126,Awe for the Guilds
+127,Ubul Sar Gatekeepers
+128,Sinister Possession
+129,Rakdos Drake
+130,Pontiff of Blight
+131,Maze Abomination
+132,Hired Torturer
+133,Fatal Fumes
+134,Crypt Incursion
+135,Blood Scrivener
+136,Bane Alley Blackguard
+137,Wind Drake
+138,Uncovered Clues
+139,Trait Doctoring
+140,Runner's Bane
+141,Opal Lake Gatekeepers
+142,Murmuring Phantasm
+143,Mindstatic
+144,Maze Glider
+145,Hidden Strings
+146,Ætherling
+147,Wake the Reflections
+148,Sunspire Gatekeepers
+149,Steeple Roc
+150,Scion of Vitu-Ghazi
+151,Riot Control
+152,Renounce the Guilds
+153,Maze Sentinel
+154,Lyev Decree
+155,Haazda Snare Squad
+156,Boros Mastiff

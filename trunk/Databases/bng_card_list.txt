@@ -1,0 +1,165 @@
+1,Temple of Plenty
+2,Temple of Malice
+3,Temple of Enlightenment
+4,Springleaf Drum
+5,Siren Song Lyre
+6,Pillar of War
+7,Heroes' Podium
+8,Gorgon's Head
+9,Astral Cornucopia
+10,Xenagos, God of Revels
+11,Siren of the Silent Song
+12,Reap What Is Sown
+13,Ragemonger
+14,Phenax, God of Deception
+15,Mogis, God of Slaughter
+16,Kiora's Follower
+17,Kiora, the Crashing Wave
+18,Karametra, God of Harvests
+19,Fanatic of Xenagos
+20,Ephara's Enlightenment
+21,Ephara, God of the Polis
+22,Chromanticore
+23,Unravel the Æther
+24,Swordwise Centaur
+25,Snake of the Golden Grove
+26,Skyreaping
+27,Setessan Starbreaker
+28,Setessan Oathsworn
+29,Scourge of Skola Vale
+30,Satyr Wayfinder
+31,Raised by Wolves
+32,Pheres-Band Tromper
+33,Pheres-Band Raiders
+34,Peregrination
+35,Nyxborn Wolf
+36,Noble Quarry
+37,Nessian Wilds Ravager
+38,Nessian Demolok
+39,Mortal's Resolve
+40,Mischief and Mayhem
+41,Karametra's Favor
+42,Hunter's Prowess
+43,Hero of Leina Tower
+44,Graverobber Spider
+45,Fated Intervention
+46,Culling Mark
+47,Courser of Kruphix
+48,Charging Badger
+49,Aspect of Hydra
+50,Archetype of Endurance
+51,Whims of the Fates
+52,Thunderous Might
+53,Thunder Brute
+54,Stormcaller of Keranos
+55,Searing Blood
+56,Scouring Sands
+57,Satyr Nyx-Smith
+58,Satyr Firedancer
+59,Rise to the Challenge
+60,Reckless Reveler
+61,Pinnacle of Rage
+62,Pharagax Giant
+63,Oracle of Bones
+64,Nyxborn Rollicker
+65,Lightning Volley
+66,Kragma Butcher
+67,Impetuous Sunchaser
+68,Forgestoker Dragon
+69,Flame-Wreathed Phoenix
+70,Felhide Spiritbinder
+71,Fearsome Temper
+72,Fated Conflagration
+73,Fall of the Hammer
+74,Everflame Eidolon
+75,Epiphany Storm
+76,Cyclops of One-Eyed Pass
+77,Bolt of Keranos
+78,Archetype of Aggression
+79,Akroan Conscriptor
+80,Weight of the Underworld
+81,Warchanter of Mogis
+82,Spiteful Returned
+83,Shrike Harpy
+84,Servant of Tymaret
+85,Sanguimancy
+86,Pain Seer
+87,Odunos River Trawler
+88,Nyxborn Eidolon
+89,Necrobite
+90,Marshmist Titan
+91,Herald of Torment
+92,Grisly Transformation
+93,Gild
+94,Forsaken Drifters
+95,Forlorn Pseudamma
+96,Felhide Brawler
+97,Fated Return
+98,Fate Unraveler
+99,Eye Gouge
+100,Eater of Hope
+101,Drown in Sorrow
+102,Claim of Erebos
+103,Champion of Stray Souls
+104,Black Oak of Odunos
+105,Bile Blight
+106,Asphyxiate
+107,Ashiok's Adept
+108,Archetype of Finality
+109,Whelming Wave
+110,Vortex Elemental
+111,Tromokratis
+112,Thassa's Rebuff
+113,Sudden Storm
+114,Stratus Walk
+115,Sphinx's Disciple
+116,Siren of the Fanged Coast
+117,Retraction Helix
+118,Perplexing Chimera
+119,Oracle's Insight
+120,Nyxborn Triton
+121,Nullify
+122,Mindreaver
+123,Meletis Astronomer
+124,Kraken of the Straits
+125,Floodtide Serpent
+126,Flitterstep Eidolon
+127,Fated Infatuation
+128,Evanescent Intellect
+129,Eternity Snare
+130,Divination
+131,Deepwater Hypnotist
+132,Crypsis
+133,Chorus of the Tides
+134,Archetype of Imagination
+135,Arbiter of the Ideal
+136,Aerie Worshippers
+137,Vanguard of Brimaz
+138,Sunbond
+139,Spirit of the Labyrinth
+140,Silent Sentinel
+141,Revoke Existence
+142,Plea for Guidance
+143,Ornitharch
+144,Oreskos Sun Guide
+145,Nyxborn Shieldmate
+146,Mortal's Ardor
+147,Loyal Pegasus
+148,Hold at Bay
+149,Hero of Iroas
+150,Griffin Dreamfinder
+151,Great Hart
+152,God-Favored General
+153,Glimpse the Sun God
+154,Ghostblade Eidolon
+155,Fated Retribution
+156,Excoriate
+157,Ephara's Radiance
+158,Elite Skirmisher
+159,Eidolon of Countless Battles
+160,Dawn to Dusk
+161,Brimaz, King of Oreskos
+162,Archetype of Courage
+163,Akroan Skyguard
+164,Akroan Phalanx
+165,Acolyte's Reward
