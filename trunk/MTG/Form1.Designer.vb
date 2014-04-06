@@ -49,6 +49,17 @@ Partial Class Form1
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.bot_black_list = New System.Windows.Forms.RichTextBox()
+        Me.CheckBoxTHS = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxBNG = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxRTR = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxM13 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxM11 = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxGTC = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxDGM = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxALL = New System.Windows.Forms.CheckBox()
+        Me.ButtonRefreshPrices = New System.Windows.Forms.Button()
+        Me.ButtonStop = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -238,6 +249,8 @@ Partial Class Form1
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel1.Controls.Add(Me.ButtonStop)
+        Me.Panel1.Controls.Add(Me.ButtonRefreshPrices)
         Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Controls.Add(Me.pick_directory)
         Me.Panel1.Controls.Add(Me.Label6)
@@ -294,11 +307,128 @@ Partial Class Form1
         Me.bot_black_list.TabIndex = 23
         Me.bot_black_list.Text = "mojosupernova" & Global.Microsoft.VisualBasic.ChrW(10) & "angelicsupernova" & Global.Microsoft.VisualBasic.ChrW(10) & "thesadbluedoli"
         '
+        'CheckBoxTHS
+        '
+        Me.CheckBoxTHS.AutoSize = True
+        Me.CheckBoxTHS.Location = New System.Drawing.Point(456, 108)
+        Me.CheckBoxTHS.Name = "CheckBoxTHS"
+        Me.CheckBoxTHS.Size = New System.Drawing.Size(48, 17)
+        Me.CheckBoxTHS.TabIndex = 24
+        Me.CheckBoxTHS.Text = "THS"
+        Me.CheckBoxTHS.UseVisualStyleBackColor = True
+        '
+        'CheckBoxBNG
+        '
+        Me.CheckBoxBNG.AutoSize = True
+        Me.CheckBoxBNG.Location = New System.Drawing.Point(456, 131)
+        Me.CheckBoxBNG.Name = "CheckBoxBNG"
+        Me.CheckBoxBNG.Size = New System.Drawing.Size(49, 17)
+        Me.CheckBoxBNG.TabIndex = 25
+        Me.CheckBoxBNG.Text = "BNG"
+        Me.CheckBoxBNG.UseVisualStyleBackColor = True
+        '
+        'CheckBoxRTR
+        '
+        Me.CheckBoxRTR.AutoSize = True
+        Me.CheckBoxRTR.Location = New System.Drawing.Point(456, 154)
+        Me.CheckBoxRTR.Name = "CheckBoxRTR"
+        Me.CheckBoxRTR.Size = New System.Drawing.Size(49, 17)
+        Me.CheckBoxRTR.TabIndex = 26
+        Me.CheckBoxRTR.Text = "RTR"
+        Me.CheckBoxRTR.UseVisualStyleBackColor = True
+        '
+        'CheckBoxM13
+        '
+        Me.CheckBoxM13.AutoSize = True
+        Me.CheckBoxM13.Location = New System.Drawing.Point(456, 177)
+        Me.CheckBoxM13.Name = "CheckBoxM13"
+        Me.CheckBoxM13.Size = New System.Drawing.Size(47, 17)
+        Me.CheckBoxM13.TabIndex = 27
+        Me.CheckBoxM13.Text = "M13"
+        Me.CheckBoxM13.UseVisualStyleBackColor = True
+        '
+        'CheckBox4
+        '
+        Me.CheckBox4.AutoSize = True
+        Me.CheckBox4.Location = New System.Drawing.Point(456, 200)
+        Me.CheckBox4.Name = "CheckBox4"
+        Me.CheckBox4.Size = New System.Drawing.Size(47, 17)
+        Me.CheckBox4.TabIndex = 28
+        Me.CheckBox4.Text = "M12"
+        Me.CheckBox4.UseVisualStyleBackColor = True
+        '
+        'CheckBoxM11
+        '
+        Me.CheckBoxM11.AutoSize = True
+        Me.CheckBoxM11.Location = New System.Drawing.Point(456, 223)
+        Me.CheckBoxM11.Name = "CheckBoxM11"
+        Me.CheckBoxM11.Size = New System.Drawing.Size(47, 17)
+        Me.CheckBoxM11.TabIndex = 29
+        Me.CheckBoxM11.Text = "M11"
+        Me.CheckBoxM11.UseVisualStyleBackColor = True
+        '
+        'CheckBoxGTC
+        '
+        Me.CheckBoxGTC.AutoSize = True
+        Me.CheckBoxGTC.Location = New System.Drawing.Point(456, 246)
+        Me.CheckBoxGTC.Name = "CheckBoxGTC"
+        Me.CheckBoxGTC.Size = New System.Drawing.Size(48, 17)
+        Me.CheckBoxGTC.TabIndex = 30
+        Me.CheckBoxGTC.Text = "GTC"
+        Me.CheckBoxGTC.UseVisualStyleBackColor = True
+        '
+        'CheckBoxDGM
+        '
+        Me.CheckBoxDGM.AutoSize = True
+        Me.CheckBoxDGM.Location = New System.Drawing.Point(456, 269)
+        Me.CheckBoxDGM.Name = "CheckBoxDGM"
+        Me.CheckBoxDGM.Size = New System.Drawing.Size(51, 17)
+        Me.CheckBoxDGM.TabIndex = 31
+        Me.CheckBoxDGM.Text = "DGM"
+        Me.CheckBoxDGM.UseVisualStyleBackColor = True
+        '
+        'CheckBoxALL
+        '
+        Me.CheckBoxALL.AutoSize = True
+        Me.CheckBoxALL.Location = New System.Drawing.Point(402, 108)
+        Me.CheckBoxALL.Name = "CheckBoxALL"
+        Me.CheckBoxALL.Size = New System.Drawing.Size(45, 17)
+        Me.CheckBoxALL.TabIndex = 32
+        Me.CheckBoxALL.Text = "ALL"
+        Me.CheckBoxALL.UseVisualStyleBackColor = True
+        '
+        'ButtonRefreshPrices
+        '
+        Me.ButtonRefreshPrices.Location = New System.Drawing.Point(17, 17)
+        Me.ButtonRefreshPrices.Name = "ButtonRefreshPrices"
+        Me.ButtonRefreshPrices.Size = New System.Drawing.Size(132, 23)
+        Me.ButtonRefreshPrices.TabIndex = 25
+        Me.ButtonRefreshPrices.Text = "Refresh prices"
+        Me.ButtonRefreshPrices.UseVisualStyleBackColor = True
+        '
+        'ButtonStop
+        '
+        Me.ButtonStop.Location = New System.Drawing.Point(155, 17)
+        Me.ButtonStop.Name = "ButtonStop"
+        Me.ButtonStop.Size = New System.Drawing.Size(132, 23)
+        Me.ButtonStop.TabIndex = 26
+        Me.ButtonStop.Text = "Stop"
+        Me.ButtonStop.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1141, 700)
+        Me.Controls.Add(Me.CheckBoxALL)
+        Me.Controls.Add(Me.CheckBoxDGM)
+        Me.Controls.Add(Me.CheckBoxGTC)
+        Me.Controls.Add(Me.CheckBoxM11)
+        Me.Controls.Add(Me.CheckBox4)
+        Me.Controls.Add(Me.CheckBoxM13)
+        Me.Controls.Add(Me.CheckBoxRTR)
+        Me.Controls.Add(Me.CheckBoxBNG)
+        Me.Controls.Add(Me.CheckBoxTHS)
         Me.Controls.Add(Me.bot_black_list)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.num_popolazioni)
@@ -352,5 +482,16 @@ Partial Class Form1
     Friend WithEvents pick_directory As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents bot_black_list As System.Windows.Forms.RichTextBox
+    Friend WithEvents CheckBoxTHS As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxBNG As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxRTR As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxM13 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxM11 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxGTC As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxDGM As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxALL As System.Windows.Forms.CheckBox
+    Friend WithEvents ButtonRefreshPrices As System.Windows.Forms.Button
+    Friend WithEvents ButtonStop As System.Windows.Forms.Button
 
 End Class

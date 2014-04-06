@@ -17,6 +17,19 @@ Public Class MTGTRader
 
     End Sub
 
+
+    Public Sub refreshAllSets()
+
+        Dim sets As ICollection(Of MTGSet) = generateSets()
+        For Each mset As MTGSet In sets
+
+            getPrices(mset.setcode, mset.cardnumber)
+
+        Next
+
+
+    End Sub
+
     ''' <summary>
     ''' 
     ''' </summary>
@@ -113,7 +126,7 @@ Public Class MTGTRader
         streamwriter.WriteLine("<table>")
         For i = 1 To numcard
 
-            If i Mod 5 = 0 Then Threading.Thread.Sleep(30 * 1000)
+            If i Mod 9 = 0 Then Threading.Thread.Sleep(30 * 1000)
             estrailowhigh(setcode, i, streamwriter)
 
 
@@ -383,6 +396,68 @@ Public Class MTGTRader
 
 
         Return nomecarta + ".html"
+    End Function
+
+
+    Private Function generateSets() As ICollection(Of MTGSet)
+
+        Dim ret As New List(Of MTGSet)
+        ret.Add(New MTGSet("BNG", 165))
+        ret.Add(New MTGSet("THS", 249))
+        ret.Add(New MTGSet("M14", 249))
+        ret.Add(New MTGSet("DGM", 156))
+        ret.Add(New MTGSet("GTC", 249))
+        ret.Add(New MTGSet("RTR", 274))
+        ret.Add(New MTGSet("M13", 249))
+        ret.Add(New MTGSet("AVR", 244))
+        ret.Add(New MTGSet("DKA", 158))
+        ret.Add(New MTGSet("ISD", 264))
+        ret.Add(New MTGSet("M12", 249))
+        ret.Add(New MTGSet("NPH", 175))
+        ret.Add(New MTGSet("MBS", 155))
+        ret.Add(New MTGSet("SOM", 249))
+        ret.Add(New MTGSet("M11", 249))
+        ret.Add(New MTGSet("ROE", 248))
+        ret.Add(New MTGSet("WWK", 145))
+        ret.Add(New MTGSet("ZEN", 249))
+        ret.Add(New MTGSet("M10", 249))
+        ret.Add(New MTGSet("ARB", 145))
+        ret.Add(New MTGSet("CON", 145))
+        ret.Add(New MTGSet("ALA", 249))
+        ret.Add(New MTGSet("EVE", 180))
+        ret.Add(New MTGSet("SHM", 301))
+        ret.Add(New MTGSet("MOR", 150))
+        ret.Add(New MTGSet("LRW", 301))
+        ret.Add(New MTGSet("10E", 383))
+        ret.Add(New MTGSet("FUT", 180))
+        ret.Add(New MTGSet("PLC", 165))
+        ret.Add(New MTGSet("TSP", 422))
+        ret.Add(New MTGSet("CSP", 155))
+        ret.Add(New MTGSet("DIS", 180))
+        ret.Add(New MTGSet("GPT", 165))
+        ret.Add(New MTGSet("RAV", 306))
+        ret.Add(New MTGSet("SOK", 165))
+        ret.Add(New MTGSet("CHK", 306))
+        ret.Add(New MTGSet("DST", 165))
+        ret.Add(New MTGSet("MRD", 306))
+        ret.Add(New MTGSet("SCG", 143))
+        ret.Add(New MTGSet("LGN", 145))
+        ret.Add(New MTGSet("ONS", 350))
+        ret.Add(New MTGSet("JUD", 143))
+        ret.Add(New MTGSet("TOR", 143))
+        ret.Add(New MTGSet("OD", 350))
+        ret.Add(New MTGSet("PS", 143))
+        ret.Add(New MTGSet("IN", 350))
+        ret.Add(New MTGSet("AP", 143))
+        ret.Add(New MTGSet("BOK", 165))
+        ret.Add(New MTGSet("9ED", 359))
+        ret.Add(New MTGSet("8ED", 357))
+        ret.Add(New MTGSet("7E", 350))
+        ret.Add(New MTGSet("5DN", 165))
+
+        Return ret
+
+
     End Function
 
 End Class

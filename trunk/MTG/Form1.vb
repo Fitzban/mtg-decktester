@@ -222,5 +222,29 @@ Public Class Form1
 
     End Sub
 
+    ''' <summary>
+    ''' long job, will create a thread and the thread will do the job
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub ButtonRefreshPrices_Click(sender As System.Object, e As System.EventArgs) Handles ButtonRefreshPrices.Click
+
+        mThreadFic = New Threading.Thread(New Threading.ThreadStart(AddressOf refreshAllPrices))
+        mThreadFic.Start()
+
+    End Sub
+    Private mThreadFic As Threading.Thread
+
+    Public Sub refreshAllPrices()
+
+        Dim trader As New MTGTRader
+        trader.refreshAllSets()
+
+    End Sub
+
+    Private Sub ButtonStop_Click(sender As System.Object, e As System.EventArgs) Handles ButtonStop.Click
+        If mThreadFic.IsAlive Then mThreadFic.Abort()
+    End Sub
 End Class
 

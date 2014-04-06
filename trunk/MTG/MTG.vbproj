@@ -108,6 +108,7 @@
     <Compile Include="Model\MTGMatch.vb" />
     <Compile Include="Model\MTGMatchResult.vb" />
     <Compile Include="Model\MTGPlayGround.vb" />
+    <Compile Include="Model\MTGSet.vb" />
     <Compile Include="Model\MTGTurn.vb" />
     <Compile Include="Model\Simulations\MTGBurnVSAggroSimulation.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
