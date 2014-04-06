@@ -431,7 +431,7 @@ Public Class MTGTRader
         ret.Add(New MTGSet("10E", 383))
         ret.Add(New MTGSet("FUT", 180))
         ret.Add(New MTGSet("PLC", 165))
-        ret.Add(New MTGSet("TSP", 422))
+        ret.Add(New MTGSet("TSP", 370))
         ret.Add(New MTGSet("CSP", 155))
         ret.Add(New MTGSet("DIS", 180))
         ret.Add(New MTGSet("GPT", 165))
