@@ -27,6 +27,7 @@ Public Class MTGTRader
             If String.IsNullOrEmpty(card) Then Continue For
 
             Dim mcardname As String = card
+            If Not json.fromCardToSet.ContainsKey(card) Then output.AppendText("Card not found in Json " & card) : output.AppendText(vbNewLine) : Continue For
             Dim tmpcardsets As ICollection(Of MagicSetJason) = json.fromCardToSet(card)
             For Each tmpset In tmpcardsets
 
