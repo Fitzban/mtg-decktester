@@ -183,9 +183,8 @@ Public Class Form1
 
     End Sub
 
-  
 
-    Private Sub pick_directory_Click(sender As System.Object, e As System.EventArgs) Handles pick_directory.Click
+    Private Sub pick_directory_Click(sender As System.Object, e As System.EventArgs)
         Dim fd As OpenFileDialog = New OpenFileDialog()
 
 
@@ -201,7 +200,7 @@ Public Class Form1
             traderan.analyze(fd.FileNames, Me.RichTextBox1)
         End If
 
-        
+
     End Sub
 
     ''' <summary>
@@ -218,7 +217,7 @@ Public Class Form1
         Dim trader As New MTGTRader
 
 
-        trader.findBots(cardlistarray, mset, True, Me.RichTextBox1, Me.bot_black_list)
+        trader.findBotsUsingJson(cardlistarray, Me.RichTextBox1, Me.bot_black_list)
 
     End Sub
 

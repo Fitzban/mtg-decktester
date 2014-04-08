@@ -22,7 +22,6 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
@@ -44,8 +43,9 @@ Partial Class Form1
         Me.setcode = New System.Windows.Forms.MaskedTextBox()
         Me.num_carte_set = New System.Windows.Forms.MaskedTextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.ButtonStop = New System.Windows.Forms.Button()
+        Me.ButtonRefreshPrices = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.pick_directory = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.bot_black_list = New System.Windows.Forms.RichTextBox()
@@ -58,9 +58,11 @@ Partial Class Form1
         Me.CheckBoxGTC = New System.Windows.Forms.CheckBox()
         Me.CheckBoxDGM = New System.Windows.Forms.CheckBox()
         Me.CheckBoxALL = New System.Windows.Forms.CheckBox()
-        Me.ButtonRefreshPrices = New System.Windows.Forms.Button()
-        Me.ButtonStop = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Panel1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -91,11 +93,11 @@ Partial Class Form1
         '
         'deck
         '
-        Me.deck.Location = New System.Drawing.Point(565, 108)
+        Me.deck.Location = New System.Drawing.Point(565, 125)
         Me.deck.Name = "deck"
-        Me.deck.Size = New System.Drawing.Size(256, 615)
+        Me.deck.Size = New System.Drawing.Size(256, 563)
         Me.deck.TabIndex = 3
-        Me.deck.Text = resources.GetString("deck.Text")
+        Me.deck.Text = "Levitation" & Global.Microsoft.VisualBasic.ChrW(10) & "Elite Vanguard"
         '
         'MaskedTextBox1
         '
@@ -220,7 +222,7 @@ Partial Class Form1
         '
         'mtgolibrarydownloader
         '
-        Me.mtgolibrarydownloader.Location = New System.Drawing.Point(17, 46)
+        Me.mtgolibrarydownloader.Location = New System.Drawing.Point(192, 92)
         Me.mtgolibrarydownloader.Name = "mtgolibrarydownloader"
         Me.mtgolibrarydownloader.Size = New System.Drawing.Size(132, 23)
         Me.mtgolibrarydownloader.TabIndex = 19
@@ -229,7 +231,7 @@ Partial Class Form1
         '
         'setcode
         '
-        Me.setcode.Location = New System.Drawing.Point(74, 75)
+        Me.setcode.Location = New System.Drawing.Point(249, 121)
         Me.setcode.Name = "setcode"
         Me.setcode.Size = New System.Drawing.Size(75, 20)
         Me.setcode.TabIndex = 20
@@ -238,7 +240,7 @@ Partial Class Form1
         '
         'num_carte_set
         '
-        Me.num_carte_set.Location = New System.Drawing.Point(74, 101)
+        Me.num_carte_set.Location = New System.Drawing.Point(249, 147)
         Me.num_carte_set.Mask = "000"
         Me.num_carte_set.Name = "num_carte_set"
         Me.num_carte_set.Size = New System.Drawing.Size(75, 20)
@@ -249,10 +251,8 @@ Partial Class Form1
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Panel1.Controls.Add(Me.ButtonStop)
-        Me.Panel1.Controls.Add(Me.ButtonRefreshPrices)
+        Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.Button3)
-        Me.Panel1.Controls.Add(Me.pick_directory)
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.mtgolibrarydownloader)
@@ -263,28 +263,37 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(327, 180)
         Me.Panel1.TabIndex = 22
         '
+        'ButtonStop
+        '
+        Me.ButtonStop.Location = New System.Drawing.Point(17, 39)
+        Me.ButtonStop.Name = "ButtonStop"
+        Me.ButtonStop.Size = New System.Drawing.Size(132, 23)
+        Me.ButtonStop.TabIndex = 26
+        Me.ButtonStop.Text = "Stop"
+        Me.ButtonStop.UseVisualStyleBackColor = True
+        '
+        'ButtonRefreshPrices
+        '
+        Me.ButtonRefreshPrices.Location = New System.Drawing.Point(17, 14)
+        Me.ButtonRefreshPrices.Name = "ButtonRefreshPrices"
+        Me.ButtonRefreshPrices.Size = New System.Drawing.Size(132, 23)
+        Me.ButtonRefreshPrices.TabIndex = 25
+        Me.ButtonRefreshPrices.Text = "Refresh prices"
+        Me.ButtonRefreshPrices.UseVisualStyleBackColor = True
+        '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(226, 78)
+        Me.Button3.Location = New System.Drawing.Point(17, 94)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(98, 23)
         Me.Button3.TabIndex = 24
         Me.Button3.Text = "Find bots"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'pick_directory
-        '
-        Me.pick_directory.Location = New System.Drawing.Point(226, 46)
-        Me.pick_directory.Name = "pick_directory"
-        Me.pick_directory.Size = New System.Drawing.Size(98, 23)
-        Me.pick_directory.TabIndex = 23
-        Me.pick_directory.Text = "Select Directory"
-        Me.pick_directory.UseVisualStyleBackColor = True
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(14, 108)
+        Me.Label6.Location = New System.Drawing.Point(189, 154)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(43, 13)
         Me.Label6.TabIndex = 23
@@ -293,7 +302,7 @@ Partial Class Form1
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(14, 78)
+        Me.Label5.Location = New System.Drawing.Point(189, 124)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(48, 13)
         Me.Label5.TabIndex = 23
@@ -301,9 +310,9 @@ Partial Class Form1
         '
         'bot_black_list
         '
-        Me.bot_black_list.Location = New System.Drawing.Point(827, 108)
+        Me.bot_black_list.Location = New System.Drawing.Point(827, 125)
         Me.bot_black_list.Name = "bot_black_list"
-        Me.bot_black_list.Size = New System.Drawing.Size(256, 615)
+        Me.bot_black_list.Size = New System.Drawing.Size(256, 563)
         Me.bot_black_list.TabIndex = 23
         Me.bot_black_list.Text = "mojosupernova" & Global.Microsoft.VisualBasic.ChrW(10) & "angelicsupernova" & Global.Microsoft.VisualBasic.ChrW(10) & "thesadbluedoli"
         '
@@ -350,7 +359,7 @@ Partial Class Form1
         'CheckBox4
         '
         Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Location = New System.Drawing.Point(456, 200)
+        Me.CheckBox4.Location = New System.Drawing.Point(400, 108)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(47, 17)
         Me.CheckBox4.TabIndex = 28
@@ -360,7 +369,7 @@ Partial Class Form1
         'CheckBoxM11
         '
         Me.CheckBoxM11.AutoSize = True
-        Me.CheckBoxM11.Location = New System.Drawing.Point(456, 223)
+        Me.CheckBoxM11.Location = New System.Drawing.Point(400, 131)
         Me.CheckBoxM11.Name = "CheckBoxM11"
         Me.CheckBoxM11.Size = New System.Drawing.Size(47, 17)
         Me.CheckBoxM11.TabIndex = 29
@@ -370,7 +379,7 @@ Partial Class Form1
         'CheckBoxGTC
         '
         Me.CheckBoxGTC.AutoSize = True
-        Me.CheckBoxGTC.Location = New System.Drawing.Point(456, 246)
+        Me.CheckBoxGTC.Location = New System.Drawing.Point(400, 154)
         Me.CheckBoxGTC.Name = "CheckBoxGTC"
         Me.CheckBoxGTC.Size = New System.Drawing.Size(48, 17)
         Me.CheckBoxGTC.TabIndex = 30
@@ -380,7 +389,7 @@ Partial Class Form1
         'CheckBoxDGM
         '
         Me.CheckBoxDGM.AutoSize = True
-        Me.CheckBoxDGM.Location = New System.Drawing.Point(456, 269)
+        Me.CheckBoxDGM.Location = New System.Drawing.Point(400, 177)
         Me.CheckBoxDGM.Name = "CheckBoxDGM"
         Me.CheckBoxDGM.Size = New System.Drawing.Size(51, 17)
         Me.CheckBoxDGM.TabIndex = 31
@@ -390,36 +399,49 @@ Partial Class Form1
         'CheckBoxALL
         '
         Me.CheckBoxALL.AutoSize = True
-        Me.CheckBoxALL.Location = New System.Drawing.Point(402, 108)
+        Me.CheckBoxALL.Location = New System.Drawing.Point(418, 206)
         Me.CheckBoxALL.Name = "CheckBoxALL"
         Me.CheckBoxALL.Size = New System.Drawing.Size(45, 17)
         Me.CheckBoxALL.TabIndex = 32
         Me.CheckBoxALL.Text = "ALL"
         Me.CheckBoxALL.UseVisualStyleBackColor = True
         '
-        'ButtonRefreshPrices
+        'Label7
         '
-        Me.ButtonRefreshPrices.Location = New System.Drawing.Point(17, 17)
-        Me.ButtonRefreshPrices.Name = "ButtonRefreshPrices"
-        Me.ButtonRefreshPrices.Size = New System.Drawing.Size(132, 23)
-        Me.ButtonRefreshPrices.TabIndex = 25
-        Me.ButtonRefreshPrices.Text = "Refresh prices"
-        Me.ButtonRefreshPrices.UseVisualStyleBackColor = True
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(562, 108)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(169, 13)
+        Me.Label7.TabIndex = 33
+        Me.Label7.Text = "Enter here the list of cards to trade"
         '
-        'ButtonStop
+        'Label8
         '
-        Me.ButtonStop.Location = New System.Drawing.Point(155, 17)
-        Me.ButtonStop.Name = "ButtonStop"
-        Me.ButtonStop.Size = New System.Drawing.Size(132, 23)
-        Me.ButtonStop.TabIndex = 26
-        Me.ButtonStop.Text = "Stop"
-        Me.ButtonStop.UseVisualStyleBackColor = True
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(824, 108)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(176, 13)
+        Me.Label8.TabIndex = 34
+        Me.Label8.Text = "Enter here the list of bots to exclude"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.ButtonStop)
+        Me.GroupBox1.Controls.Add(Me.ButtonRefreshPrices)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 3)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(324, 83)
+        Me.GroupBox1.TabIndex = 27
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "This downloads the prices from MTGO Library"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1141, 700)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.CheckBoxALL)
         Me.Controls.Add(Me.CheckBoxDGM)
         Me.Controls.Add(Me.CheckBoxGTC)
@@ -452,6 +474,7 @@ Partial Class Form1
         Me.Text = "Form1"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -479,7 +502,6 @@ Partial Class Form1
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Public WithEvents num_carte_set As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents pick_directory As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents bot_black_list As System.Windows.Forms.RichTextBox
     Friend WithEvents CheckBoxTHS As System.Windows.Forms.CheckBox
@@ -493,5 +515,8 @@ Partial Class Form1
     Friend WithEvents CheckBoxALL As System.Windows.Forms.CheckBox
     Friend WithEvents ButtonRefreshPrices As System.Windows.Forms.Button
     Friend WithEvents ButtonStop As System.Windows.Forms.Button
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
 
 End Class

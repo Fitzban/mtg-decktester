@@ -53,6 +53,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\LIB\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -104,6 +107,7 @@
     <Compile Include="Interfaces\IMTGCardEffect.vb" />
     <Compile Include="Model\MTGCardsDatabase.vb" />
     <Compile Include="Model\MTGDeck.vb" />
+    <Compile Include="Model\MTGJsonDatabase.vb" />
     <Compile Include="Model\MTGLastTurn.vb" />
     <Compile Include="Model\MTGMatch.vb" />
     <Compile Include="Model\MTGMatchResult.vb" />
@@ -126,6 +130,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Utils\MTGJson.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">

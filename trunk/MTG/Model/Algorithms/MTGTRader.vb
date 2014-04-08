@@ -8,6 +8,42 @@ Public Class MTGTRader
     Private foldername As String
     Private blacklist As List(Of String)
 
+
+    ''' <summary>
+    ''' this uses the Json database to extract the sets from the cards.
+    ''' </summary>
+    ''' <param name="cardlist"></param>
+    ''' <param name="output"></param>
+    ''' <param name="pblacklist"></param>
+    ''' <param name="runtim"></param>
+    ''' <remarks></remarks>
+    Public Sub findBotsUsingJson(cardlist() As String, output As RichTextBox, pblacklist As RichTextBox, Optional runtim As Boolean = True)
+
+        Dim json As New MTGJson
+        Dim availablesets As IEnumerable(Of String) = From x As MTGSet In generateSets() Select x.setcode
+        blacklist = New List(Of String)(pblacklist.Lines)
+
+        For Each card As String In cardlist
+            If String.IsNullOrEmpty(card) Then Continue For
+
+            Dim mcardname As String = card
+            Dim tmpcardsets As ICollection(Of MagicSetJason) = json.fromCardToSet(card)
+            For Each tmpset In tmpcardsets
+
+                If Not availablesets.Contains(tmpset.code) Then Continue For
+
+                Dim tmpjsoncard As MagicJason = (From x As MagicJason In tmpset.cards Select x Where x.name = mcardname).FirstOrDefault
+                output.AppendText(estraiLowHighAsString(tmpset.code, Integer.Parse(tmpjsoncard.number)))
+                output.AppendText(vbNewLine)
+                output.Refresh()
+
+            Next
+
+        Next
+
+    End Sub
+
+
     Public Sub getPrices(setcode As String, numcard As Integer)
 
 
@@ -165,11 +201,11 @@ Public Class MTGTRader
                     tmpline = sr.ReadLine
                     i += 1
                     ' card name
-                    If i = 63 Then cardname = tmpline
+                    If i = 64 Then cardname = tmpline
                     ' lower sell
-                    If i = 158 Then lowsell = tmpline
+                    If i = 159 Then lowsell = tmpline
                     ' higher buy
-                    If i = 297 Then
+                    If i = 298 Then
                         ' now here we found the first buyer, we skip them until we find one with tickets
                         seller = getName(tmpline)
                         While Not hasTickets(tmpline) OrElse blacklist.Contains(seller)
@@ -203,6 +239,7 @@ Public Class MTGTRader
 
         Catch x As Exception
 
+            Return x.StackTrace
 
         End Try
 
@@ -291,6 +328,7 @@ Public Class MTGTRader
     ''' <remarks></remarks>
     Private Function hasTickets(line As String) As Boolean
 
+        If String.IsNullOrEmpty(line) Then Return False
         Dim tmpline As String = line.Substring(line.Length - 11)
         Return Not tmpline.StartsWith("0")
 
