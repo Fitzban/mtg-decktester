@@ -268,11 +268,11 @@ Public Class MTGTRader
                     tmpline = sr.ReadLine
                     i += 1
                     ' card name
-                    If i = 63 Then cardname = tmpline
+                    If i = 48 Then cardname = tmpline
                     ' lower sell
-                    If i = 158 Then lowsell = tmpline
+                    If i = 134 Then lowsell = tmpline
                     ' higher buy
-                    If i = 297 Then highbuy = tmpline : Exit Do
+                    If i = 273 Then highbuy = tmpline : Exit Do
 
                 Loop
 
