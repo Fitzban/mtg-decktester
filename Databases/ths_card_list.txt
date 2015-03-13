@@ -1,0 +1,249 @@
+1,Battlewise Valor
+2,Cavalry Pegasus
+3,Celestial Archon
+4,Chained to the Rocks
+5,Chosen by Heliod
+6,Dauntless Onslaught
+7,Decorated Griffin
+8,Divine Verdict
+9,Elspeth, Sun's Champion
+10,Ephara's Warden
+11,Evangel of Heliod
+12,Fabled Hero
+13,Favored Hoplite
+14,Gift of Immortality
+15,Glare of Heresy
+16,Gods Willing
+17,Heliod, God of the Sun
+18,Heliod's Emissary
+19,Hopeful Eidolon
+20,Hundred-Handed One
+21,Lagonna-Band Elder
+22,Last Breath
+23,Leonin Snarecaster
+24,Observant Alseid
+25,Ordeal of Heliod
+26,Phalanx Leader
+27,Ray of Dissolution
+28,Scholar of Athreos
+29,Setessan Battle Priest
+30,Setessan Griffin
+31,Silent Artisan
+32,Soldier of the Pantheon
+33,Spear of Heliod
+34,Traveling Philosopher
+35,Vanquish the Foul
+36,Wingsteed Rider
+37,Yoked Ox
+38,Annul
+39,Aqueous Form
+40,Artisan of Forms
+41,Benthic Giant
+42,Bident of Thassa
+43,Breaching Hippocamp
+44,Coastline Chimera
+45,Crackling Triton
+46,Curse of the Swine
+47,Dissolve
+48,Fate Foretold
+49,Gainsay
+50,Griptide
+51,Horizon Scholar
+52,Lost in a Labyrinth
+53,Master of Waves
+54,Meletis Charlatan
+55,Mnemonic Wall
+56,Nimbus Naiad
+57,Omenspeaker
+58,Ordeal of Thassa
+59,Prescient Chimera
+60,Prognostic Sphinx
+61,Sea God's Revenge
+62,Sealock Monster
+63,Shipbreaker Kraken
+64,Stymied Hopes
+65,Swan Song
+66,Thassa, God of the Sea
+67,Thassa's Bounty
+68,Thassa's Emissary
+69,Triton Fortune Hunter
+70,Triton Shorethief
+71,Triton Tactics
+72,Vaporkin
+73,Voyage's End
+74,Wavecrash Triton
+75,Abhorrent Overlord
+76,Agent of the Fates
+77,Asphodel Wanderer
+78,Baleful Eidolon
+79,Blood-Toll Harpy
+80,Boon of Erebos
+81,Cavern Lampad
+82,Cutthroat Maneuver
+83,Dark Betrayal
+84,Disciple of Phenax
+85,Erebos, God of the Dead
+86,Erebos's Emissary
+87,Felhide Minotaur
+88,Fleshmad Steed
+89,Gray Merchant of Asphodel
+90,Hero's Downfall
+91,Hythonia the Cruel
+92,Insatiable Harpy
+93,Keepsake Gorgon
+94,Lash of the Whip
+95,Loathsome Catoblepas
+96,March of the Returned
+97,Mogis's Marauder
+98,Nighthowler
+99,Ordeal of Erebos
+100,Pharika's Cure
+101,Read the Bones
+102,Rescue from the Underworld
+103,Returned Centaur
+104,Returned Phalanx
+105,Scourgemark
+106,Sip of Hemlock
+107,Thoughtseize
+108,Tormented Hero
+109,Viper's Kiss
+110,Whip of Erebos
+111,Akroan Crusader
+112,Anger of the Gods
+113,Arena Athlete
+114,Borderland Minotaur
+115,Boulderfall
+116,Coordinated Assault
+117,Deathbellow Raider
+118,Demolish
+119,Dragon Mantle
+120,Ember Swallower
+121,Fanatic of Mogis
+122,Firedrinker Satyr
+123,Flamespeaker Adept
+124,Hammer of Purphoros
+125,Ill-Tempered Cyclops
+126,Labyrinth Champion
+127,Lightning Strike
+128,Magma Jet
+129,Messenger's Speed
+130,Minotaur Skullcleaver
+131,Ordeal of Purphoros
+132,Peak Eruption
+133,Portent of Betrayal
+134,Priest of Iroas
+135,Purphoros, God of the Forge
+136,Purphoros's Emissary
+137,Rage of Purphoros
+138,Rageblood Shaman
+139,Satyr Rambler
+140,Spark Jolt
+141,Spearpoint Oread
+142,Stoneshock Giant
+143,Stormbreath Dragon
+144,Titan of Eternal Fire
+145,Titan's Strength
+146,Two-Headed Cerberus
+147,Wild Celebrants
+148,Agent of Horizons
+149,Anthousa, Setessan Hero
+150,Arbor Colossus
+151,Artisan's Sorrow
+152,Boon Satyr
+153,Bow of Nylea
+154,Centaur Battlemaster
+155,Commune with the Gods
+156,Defend the Hearth
+157,Fade into Antiquity
+158,Feral Invocation
+159,Hunt the Hunter
+160,Karametra's Acolyte
+161,Leafcrown Dryad
+162,Mistcutter Hydra
+163,Nemesis of Mortals
+164,Nessian Asp
+165,Nessian Courser
+166,Nylea, God of the Hunt
+167,Nylea's Disciple
+168,Nylea's Emissary
+169,Nylea's Presence
+170,Ordeal of Nylea
+171,Pheres-Band Centaurs
+172,Polukranos, World Eater
+173,Reverent Hunter
+174,Satyr Hedonist
+175,Satyr Piper
+176,Savage Surge
+177,Sedge Scorpion
+178,Shredding Winds
+179,Staunch-Hearted Warrior
+180,Sylvan Caryatid
+181,Time to Feed
+182,Voyaging Satyr
+183,Vulpine Goliath
+184,Warriors' Lesson
+185,Akroan Hoplite
+186,Anax and Cymede
+187,Ashen Rider
+188,Ashiok, Nightmare Weaver
+189,Battlewise Hoplite
+190,Chronicler of Heroes
+191,Daxos of Meletis
+192,Destructive Revelry
+193,Fleecemane Lion
+194,Horizon Chimera
+195,Kragma Warcaller
+196,Medomai the Ageless
+197,Pharika's Mender
+198,Polis Crusher
+199,Prophet of Kruphix
+200,Psychic Intrusion
+201,Reaper of the Wilds
+202,Sentry of the Underworld
+203,Shipwreck Singer
+204,Spellheart Chimera
+205,Steam Augury
+206,Triad of Fates
+207,Tymaret, the Murder King
+208,Underworld Cerberus
+209,Xenagos, the Reveler
+210,Akroan Horse
+211,Anvilwrought Raptor
+212,Bronze Sable
+213,Burnished Hart
+214,Colossus of Akros
+215,Flamecast Wheel
+216,Fleetfeather Sandals
+217,Guardians of Meletis
+218,Opaline Unicorn
+219,Prowler's Helm
+220,Pyxis of Pandemonium
+221,Traveler's Amulet
+222,Witches' Eye
+223,Nykthos, Shrine to Nyx
+224,Temple of Abandon
+225,Temple of Deceit
+226,Temple of Mystery
+227,Temple of Silence
+228,Temple of Triumph
+229,Unknown Shores
+230,Plains
+231,Plains
+232,Plains
+233,Plains
+234,Island
+235,Island
+236,Island
+237,Island
+238,Swamp
+239,Swamp
+240,Swamp
+241,Swamp
+242,Mountain
+243,Mountain
+244,Mountain
+245,Mountain
+246,Forest
+247,Forest
+248,Forest
+249,Forest
