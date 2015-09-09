@@ -1,0 +1,31 @@
+5 Island
+5 Swamp
+3 Radiant Fountain
+4 Polluted Delta
+1 Bloodstained Mire
+1 Flooded Strand
+1 Urborg, Tomb of Yawgmoth
+4 Temple of Deceit
+4 Dismal Backwater
+2 Crux of Fate
+2 Ashiok, Nightmare Weaver
+2 Ugin, the Spirit Dragon
+1 Pearl Lake Ancient
+4 Dig Through Time
+3 Jace's Ingenuity
+4 Bile Blight
+4 Hero's Downfall
+1 Silence the Believers
+1 Perilous Vault
+4 Disdainful Stroke
+4 Dissolve
+
+
+1 Crux of Fate
+1 Ashiok, Nightmare Weaver
+1 Perilous Vault
+4 Thoughtseize
+2 Tasigur, the Golden Fang
+3 Drown in Sorrow
+2 Negate
+1 Murderous Cut

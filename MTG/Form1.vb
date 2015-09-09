@@ -245,5 +245,42 @@ Public Class Form1
     Private Sub ButtonStop_Click(sender As System.Object, e As System.EventArgs) Handles ButtonStop.Click
         If mThreadFic.IsAlive Then mThreadFic.Abort()
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim crawler As New Crawler
+        crawler.crawlMetaproducts()
+    End Sub
+
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim folderDlg As New FolderBrowserDialog
+        folderDlg.ShowNewFolderButton = False
+
+        If (folderDlg.ShowDialog() = DialogResult.OK) Then
+            Me.TextBox1.Text = folderDlg.SelectedPath
+            Dim root As Environment.SpecialFolder = folderDlg.RootFolder
+        End If
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        Me.Button7.Enabled = True
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+
+        Dim analyzer As New Cards.Analyzer.Analyzer(Me.Tab3OutputTextBox)
+        analyzer.analyze(Me.TextBox1.Text, Me.Tab3OutputRichTextBox, Me.treshold.Value)
+
+    End Sub
+
+    
+    Private Sub treshold_Scroll(sender As Object, e As EventArgs) Handles treshold.Scroll
+        Me.Tab3OutputTextBox.Text = Me.treshold.Value.ToString
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Dim checker As New StockChecker()
+        checker.getArticlesInStock(Me.Tab3OutputRichTextBox)
+    End Sub
 End Class
 

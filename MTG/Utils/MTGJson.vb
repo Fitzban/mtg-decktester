@@ -3,8 +3,13 @@
     ' this map contains all the sets.
     Dim sets As Dictionary(Of String, MagicSetJason)
 
-    ' this map links the cardname to the sets to which belongs to [cardname, [set1, set2, set3]]
+    ''' <summary>
+    ''' this map links the cardname to the sets to which belongs to [cardname, [set1, set2, set3]]
+    ''' </summary>
+    ''' <remarks></remarks>
     Public fromCardToSet As Dictionary(Of String, ICollection(Of MagicSetJason))
+
+    Public cardnameIndex As Dictionary(Of String, MagicJason)
 
     Sub New()
         Dim s As New System.IO.StreamReader("..\..\..\Databases\AllSets.json")
@@ -15,6 +20,7 @@
         ' The stupid data structure doesn't keep a reference to the sets from the card. We have to generate a map then.
         fromCardToSet = New Dictionary(Of String, ICollection(Of MagicSetJason))
         buildCardSetMap()
+        buildCardTExtMap()
 
     End Sub
 
@@ -44,6 +50,27 @@
 
     End Sub
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private Sub buildCardTExtMap()
+
+        cardnameIndex = New Dictionary(Of String, MagicJason)
+        For Each key As String In sets.Keys
+
+            Dim jsonset As MagicSetJason = sets(key)
+
+            For Each jsoncard In jsonset.cards
+
+                If cardnameIndex.Keys.Contains(jsoncard.name) Then Continue For
+                cardnameIndex(jsoncard.name) = jsoncard
+                
+            Next
+
+        Next
+
+    End Sub
 End Class
 
 Public Enum Colors

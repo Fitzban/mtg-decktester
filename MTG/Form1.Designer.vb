@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
@@ -43,31 +44,42 @@ Partial Class Form1
         Me.setcode = New System.Windows.Forms.MaskedTextBox()
         Me.num_carte_set = New System.Windows.Forms.MaskedTextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ButtonStop = New System.Windows.Forms.Button()
         Me.ButtonRefreshPrices = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.bot_black_list = New System.Windows.Forms.RichTextBox()
-        Me.CheckBoxTHS = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxBNG = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxRTR = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxM13 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxM11 = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxGTC = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxDGM = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxALL = New System.Windows.Forms.CheckBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.MTGO = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.treshold = New System.Windows.Forms.TrackBar()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Tab3OutputRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.Tab3OutputTextBox = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.Button8 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.MTGO.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        CType(Me.treshold, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(13, 13)
+        Me.Button1.Location = New System.Drawing.Point(19, 25)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 0
@@ -76,7 +88,7 @@ Partial Class Form1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(13, 43)
+        Me.Button2.Location = New System.Drawing.Point(19, 55)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 1
@@ -85,23 +97,23 @@ Partial Class Form1
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(13, 294)
+        Me.RichTextBox1.Location = New System.Drawing.Point(3, 192)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(537, 394)
+        Me.RichTextBox1.Size = New System.Drawing.Size(440, 371)
         Me.RichTextBox1.TabIndex = 2
         Me.RichTextBox1.Text = ""
         '
         'deck
         '
-        Me.deck.Location = New System.Drawing.Point(565, 125)
+        Me.deck.Location = New System.Drawing.Point(449, 16)
         Me.deck.Name = "deck"
-        Me.deck.Size = New System.Drawing.Size(256, 563)
+        Me.deck.Size = New System.Drawing.Size(191, 550)
         Me.deck.TabIndex = 3
         Me.deck.Text = "Levitation" & Global.Microsoft.VisualBasic.ChrW(10) & "Elite Vanguard"
         '
         'MaskedTextBox1
         '
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(95, 15)
+        Me.MaskedTextBox1.Location = New System.Drawing.Point(101, 27)
         Me.MaskedTextBox1.Name = "MaskedTextBox1"
         Me.MaskedTextBox1.Size = New System.Drawing.Size(100, 20)
         Me.MaskedTextBox1.TabIndex = 4
@@ -111,7 +123,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(1090, 13)
+        Me.Label1.Location = New System.Drawing.Point(888, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(39, 13)
         Me.Label1.TabIndex = 7
@@ -119,7 +131,7 @@ Partial Class Form1
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(646, 15)
+        Me.Button5.Location = New System.Drawing.Point(652, 27)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 23)
         Me.Button5.TabIndex = 8
@@ -128,7 +140,7 @@ Partial Class Form1
         '
         'in_num_deck
         '
-        Me.in_num_deck.Location = New System.Drawing.Point(363, 15)
+        Me.in_num_deck.Location = New System.Drawing.Point(369, 27)
         Me.in_num_deck.Name = "in_num_deck"
         Me.in_num_deck.Size = New System.Drawing.Size(100, 20)
         Me.in_num_deck.TabIndex = 9
@@ -138,7 +150,7 @@ Partial Class Form1
         'in_num_deck_test
         '
         Me.in_num_deck_test.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals
-        Me.in_num_deck_test.Location = New System.Drawing.Point(363, 41)
+        Me.in_num_deck_test.Location = New System.Drawing.Point(369, 53)
         Me.in_num_deck_test.Name = "in_num_deck_test"
         Me.in_num_deck_test.Size = New System.Drawing.Size(100, 20)
         Me.in_num_deck_test.TabIndex = 10
@@ -148,7 +160,7 @@ Partial Class Form1
         'l1
         '
         Me.l1.AutoSize = True
-        Me.l1.Location = New System.Drawing.Point(305, 15)
+        Me.l1.Location = New System.Drawing.Point(311, 27)
         Me.l1.Name = "l1"
         Me.l1.Size = New System.Drawing.Size(52, 13)
         Me.l1.TabIndex = 11
@@ -157,7 +169,7 @@ Partial Class Form1
         'l3
         '
         Me.l3.AutoSize = True
-        Me.l3.Location = New System.Drawing.Point(306, 44)
+        Me.l3.Location = New System.Drawing.Point(312, 56)
         Me.l3.Name = "l3"
         Me.l3.Size = New System.Drawing.Size(34, 13)
         Me.l3.TabIndex = 12
@@ -166,7 +178,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(469, 15)
+        Me.Label2.Location = New System.Drawing.Point(475, 27)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(69, 13)
         Me.Label2.TabIndex = 13
@@ -174,7 +186,7 @@ Partial Class Form1
         '
         'in_num_iterazioni_max
         '
-        Me.in_num_iterazioni_max.Location = New System.Drawing.Point(540, 15)
+        Me.in_num_iterazioni_max.Location = New System.Drawing.Point(546, 27)
         Me.in_num_iterazioni_max.Name = "in_num_iterazioni_max"
         Me.in_num_iterazioni_max.Size = New System.Drawing.Size(100, 20)
         Me.in_num_iterazioni_max.TabIndex = 14
@@ -184,7 +196,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(1011, 13)
+        Me.Label3.Location = New System.Drawing.Point(809, 34)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(40, 13)
         Me.Label3.TabIndex = 15
@@ -195,7 +207,7 @@ Partial Class Form1
         Me.turn_log.AutoSize = True
         Me.turn_log.Checked = True
         Me.turn_log.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.turn_log.Location = New System.Drawing.Point(651, 44)
+        Me.turn_log.Location = New System.Drawing.Point(657, 56)
         Me.turn_log.Name = "turn_log"
         Me.turn_log.Size = New System.Drawing.Size(70, 17)
         Me.turn_log.TabIndex = 16
@@ -205,7 +217,7 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(469, 43)
+        Me.Label4.Location = New System.Drawing.Point(475, 55)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(81, 13)
         Me.Label4.TabIndex = 17
@@ -213,7 +225,7 @@ Partial Class Form1
         '
         'num_popolazioni
         '
-        Me.num_popolazioni.Location = New System.Drawing.Point(565, 41)
+        Me.num_popolazioni.Location = New System.Drawing.Point(571, 53)
         Me.num_popolazioni.Name = "num_popolazioni"
         Me.num_popolazioni.Size = New System.Drawing.Size(75, 20)
         Me.num_popolazioni.TabIndex = 18
@@ -222,7 +234,7 @@ Partial Class Form1
         '
         'mtgolibrarydownloader
         '
-        Me.mtgolibrarydownloader.Location = New System.Drawing.Point(192, 92)
+        Me.mtgolibrarydownloader.Location = New System.Drawing.Point(129, 94)
         Me.mtgolibrarydownloader.Name = "mtgolibrarydownloader"
         Me.mtgolibrarydownloader.Size = New System.Drawing.Size(132, 23)
         Me.mtgolibrarydownloader.TabIndex = 19
@@ -231,7 +243,7 @@ Partial Class Form1
         '
         'setcode
         '
-        Me.setcode.Location = New System.Drawing.Point(249, 121)
+        Me.setcode.Location = New System.Drawing.Point(186, 123)
         Me.setcode.Name = "setcode"
         Me.setcode.Size = New System.Drawing.Size(75, 20)
         Me.setcode.TabIndex = 20
@@ -240,7 +252,7 @@ Partial Class Form1
         '
         'num_carte_set
         '
-        Me.num_carte_set.Location = New System.Drawing.Point(249, 147)
+        Me.num_carte_set.Location = New System.Drawing.Point(186, 149)
         Me.num_carte_set.Mask = "000"
         Me.num_carte_set.Name = "num_carte_set"
         Me.num_carte_set.Size = New System.Drawing.Size(75, 20)
@@ -258,10 +270,21 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.mtgolibrarydownloader)
         Me.Panel1.Controls.Add(Me.num_carte_set)
         Me.Panel1.Controls.Add(Me.setcode)
-        Me.Panel1.Location = New System.Drawing.Point(13, 108)
+        Me.Panel1.Location = New System.Drawing.Point(6, 6)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(327, 180)
+        Me.Panel1.Size = New System.Drawing.Size(267, 180)
         Me.Panel1.TabIndex = 22
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.ButtonStop)
+        Me.GroupBox1.Controls.Add(Me.ButtonRefreshPrices)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 5)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(261, 83)
+        Me.GroupBox1.TabIndex = 27
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "This downloads the prices from MTGO Library"
         '
         'ButtonStop
         '
@@ -293,7 +316,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(189, 154)
+        Me.Label6.Location = New System.Drawing.Point(126, 156)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(43, 13)
         Me.Label6.TabIndex = 23
@@ -302,7 +325,7 @@ Partial Class Form1
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(189, 124)
+        Me.Label5.Location = New System.Drawing.Point(126, 126)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(48, 13)
         Me.Label5.TabIndex = 23
@@ -310,106 +333,16 @@ Partial Class Form1
         '
         'bot_black_list
         '
-        Me.bot_black_list.Location = New System.Drawing.Point(827, 125)
+        Me.bot_black_list.Location = New System.Drawing.Point(646, 16)
         Me.bot_black_list.Name = "bot_black_list"
-        Me.bot_black_list.Size = New System.Drawing.Size(256, 563)
+        Me.bot_black_list.Size = New System.Drawing.Size(173, 550)
         Me.bot_black_list.TabIndex = 23
         Me.bot_black_list.Text = "mojosupernova" & Global.Microsoft.VisualBasic.ChrW(10) & "angelicsupernova" & Global.Microsoft.VisualBasic.ChrW(10) & "thesadbluedoli"
-        '
-        'CheckBoxTHS
-        '
-        Me.CheckBoxTHS.AutoSize = True
-        Me.CheckBoxTHS.Location = New System.Drawing.Point(456, 108)
-        Me.CheckBoxTHS.Name = "CheckBoxTHS"
-        Me.CheckBoxTHS.Size = New System.Drawing.Size(48, 17)
-        Me.CheckBoxTHS.TabIndex = 24
-        Me.CheckBoxTHS.Text = "THS"
-        Me.CheckBoxTHS.UseVisualStyleBackColor = True
-        '
-        'CheckBoxBNG
-        '
-        Me.CheckBoxBNG.AutoSize = True
-        Me.CheckBoxBNG.Location = New System.Drawing.Point(456, 131)
-        Me.CheckBoxBNG.Name = "CheckBoxBNG"
-        Me.CheckBoxBNG.Size = New System.Drawing.Size(49, 17)
-        Me.CheckBoxBNG.TabIndex = 25
-        Me.CheckBoxBNG.Text = "BNG"
-        Me.CheckBoxBNG.UseVisualStyleBackColor = True
-        '
-        'CheckBoxRTR
-        '
-        Me.CheckBoxRTR.AutoSize = True
-        Me.CheckBoxRTR.Location = New System.Drawing.Point(456, 154)
-        Me.CheckBoxRTR.Name = "CheckBoxRTR"
-        Me.CheckBoxRTR.Size = New System.Drawing.Size(49, 17)
-        Me.CheckBoxRTR.TabIndex = 26
-        Me.CheckBoxRTR.Text = "RTR"
-        Me.CheckBoxRTR.UseVisualStyleBackColor = True
-        '
-        'CheckBoxM13
-        '
-        Me.CheckBoxM13.AutoSize = True
-        Me.CheckBoxM13.Location = New System.Drawing.Point(456, 177)
-        Me.CheckBoxM13.Name = "CheckBoxM13"
-        Me.CheckBoxM13.Size = New System.Drawing.Size(47, 17)
-        Me.CheckBoxM13.TabIndex = 27
-        Me.CheckBoxM13.Text = "M13"
-        Me.CheckBoxM13.UseVisualStyleBackColor = True
-        '
-        'CheckBox4
-        '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Location = New System.Drawing.Point(400, 108)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(47, 17)
-        Me.CheckBox4.TabIndex = 28
-        Me.CheckBox4.Text = "M12"
-        Me.CheckBox4.UseVisualStyleBackColor = True
-        '
-        'CheckBoxM11
-        '
-        Me.CheckBoxM11.AutoSize = True
-        Me.CheckBoxM11.Location = New System.Drawing.Point(400, 131)
-        Me.CheckBoxM11.Name = "CheckBoxM11"
-        Me.CheckBoxM11.Size = New System.Drawing.Size(47, 17)
-        Me.CheckBoxM11.TabIndex = 29
-        Me.CheckBoxM11.Text = "M11"
-        Me.CheckBoxM11.UseVisualStyleBackColor = True
-        '
-        'CheckBoxGTC
-        '
-        Me.CheckBoxGTC.AutoSize = True
-        Me.CheckBoxGTC.Location = New System.Drawing.Point(400, 154)
-        Me.CheckBoxGTC.Name = "CheckBoxGTC"
-        Me.CheckBoxGTC.Size = New System.Drawing.Size(48, 17)
-        Me.CheckBoxGTC.TabIndex = 30
-        Me.CheckBoxGTC.Text = "GTC"
-        Me.CheckBoxGTC.UseVisualStyleBackColor = True
-        '
-        'CheckBoxDGM
-        '
-        Me.CheckBoxDGM.AutoSize = True
-        Me.CheckBoxDGM.Location = New System.Drawing.Point(400, 177)
-        Me.CheckBoxDGM.Name = "CheckBoxDGM"
-        Me.CheckBoxDGM.Size = New System.Drawing.Size(51, 17)
-        Me.CheckBoxDGM.TabIndex = 31
-        Me.CheckBoxDGM.Text = "DGM"
-        Me.CheckBoxDGM.UseVisualStyleBackColor = True
-        '
-        'CheckBoxALL
-        '
-        Me.CheckBoxALL.AutoSize = True
-        Me.CheckBoxALL.Location = New System.Drawing.Point(418, 206)
-        Me.CheckBoxALL.Name = "CheckBoxALL"
-        Me.CheckBoxALL.Size = New System.Drawing.Size(45, 17)
-        Me.CheckBoxALL.TabIndex = 32
-        Me.CheckBoxALL.Text = "ALL"
-        Me.CheckBoxALL.UseVisualStyleBackColor = True
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(562, 108)
+        Me.Label7.Location = New System.Drawing.Point(446, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(169, 13)
         Me.Label7.TabIndex = 33
@@ -418,65 +351,190 @@ Partial Class Form1
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(824, 108)
+        Me.Label8.Location = New System.Drawing.Point(640, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(176, 13)
         Me.Label8.TabIndex = 34
         Me.Label8.Text = "Enter here the list of bots to exclude"
         '
-        'GroupBox1
+        'Button4
         '
-        Me.GroupBox1.Controls.Add(Me.ButtonStop)
-        Me.GroupBox1.Controls.Add(Me.ButtonRefreshPrices)
-        Me.GroupBox1.Location = New System.Drawing.Point(0, 3)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(324, 83)
-        Me.GroupBox1.TabIndex = 27
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "This downloads the prices from MTGO Library"
+        Me.Button4.Location = New System.Drawing.Point(359, 14)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 35
+        Me.Button4.Text = "start"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'MTGO
+        '
+        Me.MTGO.Controls.Add(Me.TabPage1)
+        Me.MTGO.Controls.Add(Me.TabPage2)
+        Me.MTGO.Controls.Add(Me.TabPage3)
+        Me.MTGO.Location = New System.Drawing.Point(12, 12)
+        Me.MTGO.Name = "MTGO"
+        Me.MTGO.SelectedIndex = 0
+        Me.MTGO.Size = New System.Drawing.Size(1104, 694)
+        Me.MTGO.TabIndex = 36
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.bot_black_list)
+        Me.TabPage1.Controls.Add(Me.Panel1)
+        Me.TabPage1.Controls.Add(Me.Button4)
+        Me.TabPage1.Controls.Add(Me.Label8)
+        Me.TabPage1.Controls.Add(Me.Label7)
+        Me.TabPage1.Controls.Add(Me.deck)
+        Me.TabPage1.Controls.Add(Me.RichTextBox1)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(1096, 668)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "MTGO"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.Button1)
+        Me.TabPage2.Controls.Add(Me.Label3)
+        Me.TabPage2.Controls.Add(Me.Label1)
+        Me.TabPage2.Controls.Add(Me.num_popolazioni)
+        Me.TabPage2.Controls.Add(Me.Button2)
+        Me.TabPage2.Controls.Add(Me.Label4)
+        Me.TabPage2.Controls.Add(Me.MaskedTextBox1)
+        Me.TabPage2.Controls.Add(Me.turn_log)
+        Me.TabPage2.Controls.Add(Me.Button5)
+        Me.TabPage2.Controls.Add(Me.in_num_deck)
+        Me.TabPage2.Controls.Add(Me.in_num_iterazioni_max)
+        Me.TabPage2.Controls.Add(Me.in_num_deck_test)
+        Me.TabPage2.Controls.Add(Me.Label2)
+        Me.TabPage2.Controls.Add(Me.l1)
+        Me.TabPage2.Controls.Add(Me.l3)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(1096, 668)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Genetico"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.Button8)
+        Me.TabPage3.Controls.Add(Me.treshold)
+        Me.TabPage3.Controls.Add(Me.Label9)
+        Me.TabPage3.Controls.Add(Me.Button7)
+        Me.TabPage3.Controls.Add(Me.Tab3OutputRichTextBox)
+        Me.TabPage3.Controls.Add(Me.Tab3OutputTextBox)
+        Me.TabPage3.Controls.Add(Me.TextBox1)
+        Me.TabPage3.Controls.Add(Me.Button6)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(1096, 668)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Cards Analitics"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'treshold
+        '
+        Me.treshold.Location = New System.Drawing.Point(103, 34)
+        Me.treshold.Maximum = 50
+        Me.treshold.Name = "treshold"
+        Me.treshold.Size = New System.Drawing.Size(378, 45)
+        Me.treshold.SmallChange = 5
+        Me.treshold.TabIndex = 10
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(487, 41)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(44, 13)
+        Me.Label9.TabIndex = 8
+        Me.Label9.Text = "treshold"
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(7, 36)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(90, 23)
+        Me.Button7.TabIndex = 6
+        Me.Button7.Text = "Analyze"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Tab3OutputRichTextBox
+        '
+        Me.Tab3OutputRichTextBox.Location = New System.Drawing.Point(7, 109)
+        Me.Tab3OutputRichTextBox.Name = "Tab3OutputRichTextBox"
+        Me.Tab3OutputRichTextBox.Size = New System.Drawing.Size(1083, 553)
+        Me.Tab3OutputRichTextBox.TabIndex = 5
+        Me.Tab3OutputRichTextBox.Text = ""
+        '
+        'Tab3OutputTextBox
+        '
+        Me.Tab3OutputTextBox.Location = New System.Drawing.Point(538, 7)
+        Me.Tab3OutputTextBox.Name = "Tab3OutputTextBox"
+        Me.Tab3OutputTextBox.Size = New System.Drawing.Size(552, 20)
+        Me.Tab3OutputTextBox.TabIndex = 3
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(103, 8)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(428, 20)
+        Me.TextBox1.TabIndex = 2
+        Me.TextBox1.Text = "D:\mtg-decktester\Databases\decks"
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(7, 6)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(90, 23)
+        Me.Button6.TabIndex = 1
+        Me.Button6.Text = "Decks Folder"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.UseEXDialog = True
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(1000, 36)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(90, 23)
+        Me.Button8.TabIndex = 11
+        Me.Button8.Text = "Check Stock"
+        Me.Button8.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1141, 700)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.CheckBoxALL)
-        Me.Controls.Add(Me.CheckBoxDGM)
-        Me.Controls.Add(Me.CheckBoxGTC)
-        Me.Controls.Add(Me.CheckBoxM11)
-        Me.Controls.Add(Me.CheckBox4)
-        Me.Controls.Add(Me.CheckBoxM13)
-        Me.Controls.Add(Me.CheckBoxRTR)
-        Me.Controls.Add(Me.CheckBoxBNG)
-        Me.Controls.Add(Me.CheckBoxTHS)
-        Me.Controls.Add(Me.bot_black_list)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.num_popolazioni)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.turn_log)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.in_num_iterazioni_max)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.l3)
-        Me.Controls.Add(Me.l1)
-        Me.Controls.Add(Me.in_num_deck_test)
-        Me.Controls.Add(Me.in_num_deck)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.MaskedTextBox1)
-        Me.Controls.Add(Me.deck)
-        Me.Controls.Add(Me.RichTextBox1)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(1124, 714)
+        Me.Controls.Add(Me.MTGO)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        Me.MTGO.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
+        CType(Me.treshold, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Button1 As System.Windows.Forms.Button
@@ -504,19 +562,25 @@ Partial Class Form1
     Public WithEvents num_carte_set As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents bot_black_list As System.Windows.Forms.RichTextBox
-    Friend WithEvents CheckBoxTHS As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBoxBNG As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBoxRTR As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBoxM13 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBoxM11 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBoxGTC As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBoxDGM As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBoxALL As System.Windows.Forms.CheckBox
     Friend WithEvents ButtonRefreshPrices As System.Windows.Forms.Button
     Friend WithEvents ButtonStop As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents MTGO As System.Windows.Forms.TabControl
+    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
+    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents PrintDialog1 As System.Windows.Forms.PrintDialog
+    Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Tab3OutputTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents Tab3OutputRichTextBox As System.Windows.Forms.RichTextBox
+    Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents treshold As System.Windows.Forms.TrackBar
+    Friend WithEvents Button8 As System.Windows.Forms.Button
 
 End Class
